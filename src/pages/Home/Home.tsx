@@ -1,16 +1,22 @@
-import './Home.module.css'
+import Header from '../../components/Header/Header';
+import styles from './Home.module.css';
 
-export default function Home () {
-    return (
-        <div className="home">
-            <div className="home__title-bx">
-            <h1 className="home__title">Order</h1>
-            <h2 className="home__subtitle">Fresh Pizza</h2>
-            <h2 className="home__subtitle">Near You!</h2>
-            <label className="home__location-title">Find Your Nearest Location:</label>
-            <input type="text" className="home__location-text" placeholder="Enter city, state, or ZIP"/>
-            </div>
-
+export default function Home() {
+  return (
+    <div className={styles.home}>
+      <Header />
+      <section className={styles.homeHero}>
+        <div className={styles.homeTitleBx}>
+         <h1 className={styles.homeTitle}>
+  <span className={styles.homeTitleOrder}>ORDER</span>
+  <span className={styles.homeTitleFresh}>FRESH PIZZA</span>
+  <span className={styles.homeTitleNear}>NEAR YOU!</span>
+</h1>
+          <label className={styles.homeLocationTitle}>Find Your Nearest Location:
+          <input type="text" className={styles.homeLocationText} placeholder="Enter city, state, or ZIP" />
+       </label>
         </div>
-    )
+      </section>
+    </div>
+  );
 }

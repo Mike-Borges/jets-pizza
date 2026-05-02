@@ -1,7 +1,73 @@
 .home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: url("../../assets/jet-home.svg") no-repeat center center / cover;
+  max-width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.homeHero {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.homeTitleBx {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #fff;
   padding: 20px;
+  width: 675px;
+  height: 625px;
+}
+
+.homeTitle {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.homeTitleOrder {
+  font-size: 128px;
+  line-height: 80px;
+  letter-spacing: 4%;
+}
+
+.homeTitleFresh {
+  font-size: 75px;
+  line-height: 80px;
+  letter-spacing: 0%;
+}
+
+.homeTitleNear {
+  font-size: 75px;
+  line-height: 80px;
+  letter-spacing: 10%;
+}
+
+.homeLocationTitle {
+  font-size: 1.875rem;
+}
+
+.homeLocationText {
+  background-color: #f5e1cf;
+  color: #9d9d9d;
+  width: 479px;
+  height: 73px;
+  border-radius: 43px;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  padding: 0 20px;
 }
