@@ -17,6 +17,7 @@ export default function Home() {
           <label className={styles.homeLocationTitle}>Find Your Nearest Location:
             <input type="text" className={styles.homeLocationText} placeholder="Enter city, state, or ZIP" />
           </label>
+          <a href="https://www.youtube.com/watch?v=apC53f4aoH4" target="_blank" rel="noopener noreferrer" className={styles.homeSongBtn}>Listen to Jet's Song on YouTube ♪</a>
         </div>
         <img src={heroGifBorder} alt="" className={styles.homeHeroGreen} />
         <div className={styles.homeHeroImgBx}>

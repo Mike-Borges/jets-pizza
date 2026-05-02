@@ -76,6 +76,20 @@
   padding: 0 20px;
 }
 
+.homeSongBtn {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 12px;
+  cursor: pointer;
+  width: 479px;
+}
+
+.homeSongBtn:hover {
+  color: #05a550;
+}
+
 .homeHeroGreen {
   position: absolute;
   top: 100px;
@@ -132,6 +146,10 @@
   }
 
   .homeLocationText {
+    width: 600px;
+  }
+
+  .homeSongBtn {
     width: 600px;
   }
 }
