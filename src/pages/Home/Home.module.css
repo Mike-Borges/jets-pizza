@@ -7,25 +7,27 @@
   max-width: 100%;
   height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .homeHero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  padding-top: 80px;
 }
 
 .homeTitleBx {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: #fff;
   padding: 20px;
   width: 675px;
   height: 625px;
+  margin-left: 60px;
+  justify-content: center;
 }
 
 .homeTitle {
@@ -34,6 +36,7 @@
   font-weight: 700;
   text-align: left;
   align-self: flex-start;
+  gap: 20px;
 }
 
 .homeTitleOrder {
@@ -50,12 +53,13 @@
 
 .homeTitleNear {
   font-size: 75px;
-  line-height: 80px;
+  line-height: 40px;
   letter-spacing: 10%;
 }
 
 .homeLocationTitle {
   font-size: 1.875rem;
+  margin-top: 100px;
 }
 
 .homeLocationText {
@@ -70,4 +74,39 @@
   border: none;
   outline: none;
   padding: 0 20px;
+}
+
+.homeHeroGreen {
+  position: absolute;
+  top: 100px;
+  right: -20px;
+  width: 900px;
+  height: 950px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.homeHeroImgBx {
+  width: 727px;
+  height: 786px;
+  border-radius: 0 0 0 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 3;
+}
+
+.homeHeroImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 1600px) {
+  .homeHero {
+    padding-top: 60px;
+  }
 }
