@@ -9,6 +9,7 @@
   padding: 16px 40px;
   box-sizing: border-box;
   height: 100px;
+  background-color: #000;
 }
 
 .logo {
@@ -20,6 +21,7 @@
   gap: 20px;
   height: 50px;
   max-width: 100%;
+  width: 632px;
 }
 
 .navBtn {
@@ -28,11 +30,13 @@
   border: 2px solid #fff;
   background: #fff;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   text-decoration: none;
   color: #000;
   cursor: pointer;
   border-color: #05a550bf;
+  width: 100%;
+  text-align: center;
 }
 
 .navBtn:hover {

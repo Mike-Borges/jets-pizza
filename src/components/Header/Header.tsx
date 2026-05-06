@@ -9,7 +9,7 @@ export default function Header() {
       <nav className={styles.nav}>
         <Link to="/menu" className={styles.navBtn}>Menu</Link>
         <Link to="/deals" className={styles.navBtn}>Deals</Link>
-        <Link to="/signin" className={styles.navBtn}>Sign In</Link>
+        <Link to="/signin" className={styles.navBtn}>Sign-In</Link>
       </nav>
     </header>
   );
