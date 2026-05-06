@@ -1,6 +1,7 @@
 import Header from '../../components/Header/Header';
 import heroGif from '../../assets/jet-home-ani.gif';
 import heroGifBorder from '../../assets/jet-home-ani-bx.png';
+import homeRewardsImg from '../../assets/home-reward.png';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -35,6 +36,16 @@ export default function Home() {
             <p className={styles.homeUltimatePepDesc}>Shredded, Bold & Traditional- A crispy, square, golden crust that is baked to perfection.</p>
           </div>
           <button className={styles.homeUltimatePepBtn}>Order Now</button>
+        </div>
+      </section>
+      <div className={styles.homeTopBanner}>
+        <p className={styles.homeTopBannerText}>Earn Points and Get Rewarded</p>
+        <button className={styles.homeTopBannerBtn}>Sign Up Now</button>
+      </div>
+      <section className={styles.homeRewards}>
+        <img src={heroGifBorder} alt="Green decorative border" className={styles.homeRewardsGreen} />
+        <div className={styles.homeRewardsImgBox}>
+          <img src={homeRewardsImg} alt="Variety of Jet's food" className={styles.homeRewardsImg} />
         </div>
       </section>
     </div>
