@@ -1,0 +1,148 @@
+.footer {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-top: 40px;
+  font-family: "Poppins", var(--sans);
+  font-size: 1.5rem;
+}
+
+.footerNav {
+  width: 100%;
+  background-color: #05a550;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 24px 40px;
+  box-sizing: border-box;
+}
+
+.footerNavLink {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footerNavLink:hover {
+  text-decoration: underline;
+}
+
+.footerMiddle {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 80px;
+  box-sizing: border-box;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footerLink {
+  color: #000;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+  color: #05a550;
+}
+
+.footerSocial {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footerSocialRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerSocialLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap;
+}
+
+.footerSocialIcons {
+  display: flex;
+  gap: 12px;
+}
+
+.footerSocialIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footerSocialIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.footerAppRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerAppBtns {
+  display: flex;
+  gap: 12px;
+}
+
+.footerAppBtn {
+  text-decoration: none;
+}
+
+.footerAppBtn img {
+  width: 155px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  border-top: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.footerCopyright {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.footerBottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerBottomLink {
+  color: #000;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.footerBottomLink:hover {
+  text-decoration: underline;
+}
+
+.footerDivider {
+  color: #000;
+}

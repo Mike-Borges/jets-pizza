@@ -1,3 +1,55 @@
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("./vendor/fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bitter";
+  src: url("./vendor/fonts/Bitter/Bitter-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bitter";
+  src: url("./vendor/fonts/Bitter/Bitter-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./vendor/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./vendor/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./vendor/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./vendor/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   /* Brand */
   --brand-green: #05a550;
@@ -27,7 +79,6 @@
 
 #root {
   width: 100%;
-
   margin: 0 auto;
   min-height: fit-content;
   display: flex;
@@ -43,12 +94,12 @@ h1,
 h2,
 h3 {
   font-family: var(--sans);
-
   margin: 0;
 }
 
 p {
   margin: 0;
+  font-family: var(--sans);
 }
 
 * {
