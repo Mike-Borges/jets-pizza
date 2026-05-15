@@ -8,6 +8,7 @@ import Salads from '../../components/MenuSections/Salads/Salads';
 import Calzones from '../../components/MenuSections/Calzones/Calzones';
 import Drinks from '../../components/MenuSections/Drinks/Drinks';
 import Desserts from '../../components/MenuSections/Desserts/Desserts';
+import Footer from '../../components/Footer/Footer';
 import styles from './Menu.module.css';
 
 export default function Menu() {
@@ -23,6 +24,8 @@ export default function Menu() {
       {active === 'Calzones' && <Calzones />}
       {active === 'Drinks' && <Drinks />}
       {active === 'Desserts' && <Desserts />}
+      <Footer />
     </div>
+    
   );
 }
