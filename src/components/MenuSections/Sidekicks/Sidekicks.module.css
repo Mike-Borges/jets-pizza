@@ -1,0 +1,28 @@
+/* Sidekicks.module.css */
+.sidekicks {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 40px 80px;
+  box-sizing: border-box;
+}
+
+.sidekicksSection {
+  background-color: #e2d9c4;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.sidekicksSectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
+  font-family: "Bitter", sans-serif;
+  margin-bottom: 24px;
+}
+
+.sidekicksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
