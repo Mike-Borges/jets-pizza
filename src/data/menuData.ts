@@ -1,13 +1,12 @@
 export const pizzas = [
   { id: 1, name: 'Build Your Own Pizza', price: '$10.00', image: '' },
   { id: 2, name: 'Ultimate Pepperoni', price: '$10.00', image: '' },
-  { id: 3, name: 'Popcorn BBQ Chicken', price: '$10.00', image: '' },
-  { id: 4, name: 'All Meaty®', price: '$10.00', image: '' },
-  { id: 5, name: 'Aloha BBQ Chicken', price: '$10.00', image: '' },
-  { id: 6, name: 'BLT', price: '$10.00', image: '' },
-  { id: 7, name: 'BBQ Chicken', price: '$10.00', image: '' },
-  { id: 8, name: 'Hawaiian', price: '$10.00', image: '' },
-  { id: 9, name: 'Jet 10®', price: '$10.00', image: '' },
+  { id: 3, name: 'All Meaty®', price: '$10.00', image: '' },
+  { id: 4, name: 'Aloha BBQ Chicken', price: '$10.00', image: '' },
+  { id: 5, name: 'BLT', price: '$10.00', image: '' },
+  { id: 6, name: 'BBQ Chicken', price: '$10.00', image: '' },
+  { id: 7, name: 'Hawaiian', price: '$10.00', image: '' },
+  { id: 8, name: 'Jet 10®', price: '$10.00', image: '' },
 ];
 
 export const sidekicks = [

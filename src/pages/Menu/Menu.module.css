@@ -1,12 +1,12 @@
 .menu {
   width: 100%;
-  background-color: #f5f5f5;
+  background: url("../../assets/jet-home.svg") no-repeat center center / cover;
   box-sizing: border-box;
 }
 
 .menuSection {
   padding: 60px 80px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #fff;
   scroll-margin-top: 120px;
 }
 
@@ -17,14 +17,14 @@
 .menuSectionTitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
+  color: #fff;
   font-family: "Bitter", sans-serif;
   margin-bottom: 8px;
 }
 
 .menuSectionDesc {
   font-size: 0.875rem;
-  color: #666;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -52,7 +52,7 @@
 
 .crustDesc {
   font-size: 0.8rem;
-  color: #ccc;
+  color: #fff;
 }
 
 .menuGrid {
