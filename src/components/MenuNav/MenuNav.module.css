@@ -1,12 +1,15 @@
 .menuNav {
   width: 100%;
-  background-color: #e2d9c4;
+  background-color: var(--bg-cream);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 40px;
   box-sizing: border-box;
   border-bottom: 2px solid #000;
+  position: sticky;
+  top: 100px;
+  z-index: 90;
 }
 
 .menuNavItem {
@@ -27,9 +30,9 @@
 }
 
 .menuNavBtnActive {
-  background-color: #000;
-  color: #fff;
-  border-radius: 4px;
+  color: #ec2224;
+  border-bottom: 2px solid #ec2224;
+  border-radius: 0;
 }
 
 .menuNavBtn:hover {
