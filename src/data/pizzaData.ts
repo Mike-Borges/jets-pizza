@@ -5,7 +5,6 @@ export const crustOptions = [
     description: 'Crispy, square, golden crust baked to perfection',
     sizes: [
       { name: 'Small', inches: '8"', slices: 4, price: 10.99 },
-      
       { name: 'Large', inches: '12"', slices: 8, price: 16.99 },
       { name: 'X-Large', inches: '14"', slices: 10, price: 19.99 },
     ],
