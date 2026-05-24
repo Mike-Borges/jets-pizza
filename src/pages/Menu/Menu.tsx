@@ -1,11 +1,11 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import PizzaNav from '../../components/PizzaNav/PizzaNav';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import Footer from '../../components/Footer/Footer';
 import { crustOptions } from '../../data/pizzaData';
-import { pizzas, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
+import { pizzas, exclusives, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
 import styles from './Menu.module.css';
 
 export default function Menu() {
@@ -17,13 +17,13 @@ export default function Menu() {
   const calzonesRef = useRef<HTMLElement>(null);
   const drinksRef = useRef<HTMLElement>(null);
   const dessertsRef = useRef<HTMLElement>(null);
+  const veganRef = useRef<HTMLElement>(null);
+  const vegetarianRef = useRef<HTMLElement>(null);
+  const glutenFreeRef = useRef<HTMLElement>(null);
 
   const specialtyRef = useRef<HTMLDivElement>(null);
   const crustRef = useRef<HTMLDivElement>(null);
   const exclusivesRef = useRef<HTMLDivElement>(null);
-  const veganRef = useRef<HTMLDivElement>(null);
-  const vegetarianRef = useRef<HTMLDivElement>(null);
-  const glutenFreeRef = useRef<HTMLDivElement>(null);
 
   const sectionRefs = {
     Pizza: pizzaRef,
@@ -32,16 +32,49 @@ export default function Menu() {
     Calzones: calzonesRef,
     Drinks: drinksRef,
     Desserts: dessertsRef,
+    Vegan: veganRef,
+    Vegetarian: vegetarianRef,
+    'Gluten Free': glutenFreeRef,
   };
 
   const pizzaSubRefs = {
     Specialty: specialtyRef,
     'Crust Styles': crustRef,
     "Jet's Exclusives": exclusivesRef,
+  };
+
+useEffect(() => {
+  const observers: IntersectionObserver[] = [];
+  const options = { threshold: 0, rootMargin: '-10% 0px -80% 0px' };
+
+  const refs = {
+    Pizza: pizzaRef,
+    Sidekicks: sidekicksRef,
+    Salads: saladsRef,
+    Calzones: calzonesRef,
+    Drinks: drinksRef,
+    Desserts: dessertsRef,
     Vegan: veganRef,
     Vegetarian: vegetarianRef,
     'Gluten Free': glutenFreeRef,
   };
+
+  Object.entries(refs).forEach(([category, ref]) => {
+    if (ref.current) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveCategory(category);
+          }
+        });
+      }, options);
+      observer.observe(ref.current);
+      observers.push(observer);
+    }
+  });
+
+  return () => observers.forEach((o) => o.disconnect());
+}, []);
 
   const scrollToSection = (category: string) => {
     setActiveCategory(category);
@@ -61,8 +94,8 @@ export default function Menu() {
   return (
     <div className={styles.menu}>
       <Header />
-      <MenuNav onTabClick={scrollToSection} />
-     {activeCategory === 'Pizza' && <PizzaNav onTabClick={scrollToPizzaSection} />}
+      <MenuNav activeCategory={activeCategory} onTabClick={scrollToSection} />
+      {activeCategory === 'Pizza' && <PizzaNav onTabClick={scrollToPizzaSection} />}
 
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
         <div className={styles.menuSectionHeader}>
@@ -94,24 +127,9 @@ export default function Menu() {
         <div ref={exclusivesRef} className={styles.menuSubSection}>
           <h3 className={styles.menuSubTitle}>Jet's Exclusives</h3>
           <div className={styles.menuGrid}>
-          </div>
-        </div>
-
-        <div ref={veganRef} className={styles.menuSubSection}>
-          <h3 className={styles.menuSubTitle}>Vegan</h3>
-          <div className={styles.menuGrid}>
-          </div>
-        </div>
-
-        <div ref={vegetarianRef} className={styles.menuSubSection}>
-          <h3 className={styles.menuSubTitle}>Vegetarian</h3>
-          <div className={styles.menuGrid}>
-          </div>
-        </div>
-
-        <div ref={glutenFreeRef} className={styles.menuSubSection}>
-          <h3 className={styles.menuSubTitle}>Gluten Free</h3>
-          <div className={styles.menuGrid}>
+            {exclusives.map((item) => (
+              <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            ))}
           </div>
         </div>
       </section>
@@ -167,6 +185,42 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {desserts.map((item) => (
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+          ))}
+        </div>
+      </section>
+
+      <section id="vegan" ref={veganRef} className={styles.menuSection}>
+        <div className={styles.menuSectionHeader}>
+          <h2 className={styles.menuSectionTitle}>Vegan</h2>
+          <p className={styles.menuSectionDesc}>Vegans, we've got something special just for you!</p>
+        </div>
+        <div className={styles.menuGrid}>
+          {vegan.map((item) => (
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+          ))}
+        </div>
+      </section>
+
+      <section id="vegetarian" ref={vegetarianRef} className={styles.menuSection}>
+        <div className={styles.menuSectionHeader}>
+          <h2 className={styles.menuSectionTitle}>Vegetarian</h2>
+          <p className={styles.menuSectionDesc}>Lover of all things veggie? You're in the right place!</p>
+        </div>
+        <div className={styles.menuGrid}>
+          {vegetarian.map((item) => (
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+          ))}
+        </div>
+      </section>
+
+      <section id="gluten-free" ref={glutenFreeRef} className={styles.menuSection}>
+        <div className={styles.menuSectionHeader}>
+          <h2 className={styles.menuSectionTitle}>Gluten Free</h2>
+          <p className={styles.menuSectionDesc}>Calling all gluten-free pizza fans!</p>
+        </div>
+        <div className={styles.menuGrid}>
+          {glutenFree.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
           ))}
         </div>

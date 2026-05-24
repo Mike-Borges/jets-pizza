@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './PizzaNav.module.css';
 
-const subCategories = ['Specialty', 'Crust Styles', "Jet's Exclusives", 'Vegan', 'Vegetarian', 'Gluten Free'];
+const subCategories = ['Specialty', 'Crust Styles', "Jet's Exclusives"];
 
 interface PizzaNavProps {
   onTabClick: (category: string) => void;
