@@ -1,25 +1,20 @@
-import { useState } from 'react';
 import styles from './PizzaNav.module.css';
 
 const subCategories = ['Specialty', 'Crust Styles', "Jet's Exclusives"];
 
 interface PizzaNavProps {
+  activeCategory: string;
   onTabClick: (category: string) => void;
 }
 
-export default function PizzaNav({ onTabClick }: PizzaNavProps) {
-  const [active, setActive] = useState('Specialty');
-
+export default function PizzaNav({ activeCategory, onTabClick }: PizzaNavProps) {
   return (
     <nav className={styles.pizzaNav}>
       {subCategories.map((cat, index) => (
         <div key={cat} className={styles.pizzaNavItem}>
           <button
-            className={`${styles.pizzaNavBtn} ${active === cat ? styles.pizzaNavBtnActive : ''}`}
-            onClick={() => {
-              setActive(cat);
-              onTabClick(cat);
-            }}
+            className={`${styles.pizzaNavBtn} ${activeCategory === cat ? styles.pizzaNavBtnActive : ''}`}
+            onClick={() => onTabClick(cat)}
           >
             {cat.toUpperCase()}
           </button>

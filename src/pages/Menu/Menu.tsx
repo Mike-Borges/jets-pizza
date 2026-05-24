@@ -10,6 +10,7 @@ import styles from './Menu.module.css';
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('Pizza');
+  const [activePizzaCategory, setActivePizzaCategory] = useState('Specialty');
 
   const pizzaRef = useRef<HTMLElement>(null);
   const sidekicksRef = useRef<HTMLElement>(null);
@@ -43,38 +44,54 @@ export default function Menu() {
     "Jet's Exclusives": exclusivesRef,
   };
 
-useEffect(() => {
-  const observers: IntersectionObserver[] = [];
-  const options = { threshold: 0, rootMargin: '-10% 0px -80% 0px' };
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    const options = { threshold: 0, rootMargin: '-10% 0px -80% 0px' };
 
-  const refs = {
-    Pizza: pizzaRef,
-    Sidekicks: sidekicksRef,
-    Salads: saladsRef,
-    Calzones: calzonesRef,
-    Drinks: drinksRef,
-    Desserts: dessertsRef,
-    Vegan: veganRef,
-    Vegetarian: vegetarianRef,
-    'Gluten Free': glutenFreeRef,
-  };
+    const refs = {
+      Pizza: pizzaRef,
+      Sidekicks: sidekicksRef,
+      Salads: saladsRef,
+      Calzones: calzonesRef,
+      Drinks: drinksRef,
+      Desserts: dessertsRef,
+      Vegan: veganRef,
+      Vegetarian: vegetarianRef,
+      'Gluten Free': glutenFreeRef,
+    };
 
-  Object.entries(refs).forEach(([category, ref]) => {
-    if (ref.current) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveCategory(category);
-          }
-        });
-      }, options);
-      observer.observe(ref.current);
-      observers.push(observer);
-    }
-  });
+    const pizzaRefs = {
+      Specialty: specialtyRef,
+      'Crust Styles': crustRef,
+      "Jet's Exclusives": exclusivesRef,
+    };
 
-  return () => observers.forEach((o) => o.disconnect());
-}, []);
+    Object.entries(refs).forEach(([category, ref]) => {
+      if (ref.current) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActiveCategory(category);
+          });
+        }, options);
+        observer.observe(ref.current);
+        observers.push(observer);
+      }
+    });
+
+    Object.entries(pizzaRefs).forEach(([category, ref]) => {
+      if (ref.current) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActivePizzaCategory(category);
+          });
+        }, options);
+        observer.observe(ref.current);
+        observers.push(observer);
+      }
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   const scrollToSection = (category: string) => {
     setActiveCategory(category);
@@ -95,7 +112,7 @@ useEffect(() => {
     <div className={styles.menu}>
       <Header />
       <MenuNav activeCategory={activeCategory} onTabClick={scrollToSection} />
-      {activeCategory === 'Pizza' && <PizzaNav onTabClick={scrollToPizzaSection} />}
+      {activeCategory === 'Pizza' && <PizzaNav activeCategory={activePizzaCategory} onTabClick={scrollToPizzaSection} />}
 
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
         <div className={styles.menuSectionHeader}>

@@ -19,9 +19,10 @@ import ddBread from '../assets/dd-bread.png';
 import thin from '../assets/thin.png';
 import handTossed from '../assets/hand-tossed.png';
 import detroitStyle from '../assets/detroit-style.png';
+import byopizza from '../assets/byo-pizza.png';
 
 export const pizzas = [
-  { id: 1, name: 'Build Your Own Pizza', price: '$10.00', image: '' },
+  { id: 1, name: 'Build Your Own Pizza', price: '$10.00', image: byopizza },
   { id: 2, name: 'Ultimate Pepperoni', price: '$10.00', image: ultimatePep },
   { id: 3, name: 'All Meaty®', price: '$10.00', image: '' },
   { id: 4, name: 'Aloha BBQ Chicken', price: '$10.00', image: '' },

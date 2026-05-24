@@ -5,7 +5,9 @@ import jetLogo from '../../assets/jet-logo.svg';
 export default function Header() {
   return (
     <header className={styles.header}>
+      <Link to="/">
       <img src={jetLogo} alt="Jet's Pizza" className={styles.logo} />
+      </Link>
       <nav className={styles.nav}>
         <Link to="/menu" className={styles.navBtn}>Menu</Link>
         <Link to="/deals" className={styles.navBtn}>Deals</Link>
