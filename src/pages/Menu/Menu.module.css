@@ -1,0 +1,62 @@
+.menu {
+  width: 100%;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.menuSection {
+  padding: 60px 80px;
+  border-bottom: 1px solid #e0e0e0;
+  scroll-margin-top: 120px;
+}
+
+.menuSectionHeader {
+  margin-bottom: 32px;
+}
+
+.menuSectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Bitter", sans-serif;
+  margin-bottom: 8px;
+}
+
+.menuSectionDesc {
+  font-size: 0.875rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menuSectionCrusts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.crustCard {
+  background-color: #231f20;
+  color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.crustName {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.crustDesc {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
