@@ -1,0 +1,308 @@
+/* LocationModal.module.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 99999999999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: #fff;
+  width: 900px;
+  max-width: 95vw;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modalHeader {
+  background-color: #231f20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.modalHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalHeaderPin {
+  font-size: 1.2rem;
+}
+
+.modalHeaderTitle {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  font-family: "Poppins", sans-serif;
+}
+
+.modalHeaderAddress {
+  color: #05a550;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.modalCloseBtn:hover {
+  color: #ec2224;
+}
+
+.modalBody {
+  padding: 32px;
+}
+
+.modalSearch {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.modalSearchInput {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px dashed #05a550;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.modalSearchPin {
+  font-size: 1.2rem;
+}
+
+.modalSearchText {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.modalSearchBtn {
+  background-color: #05a550;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.modalSearchBtn:hover {
+  background-color: #047a3d;
+}
+
+.modalContent {
+  display: flex;
+  gap: 40px;
+}
+
+.modalLeft {
+  flex: 1;
+}
+
+.modalNearestTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  font-family: "Bitter", sans-serif;
+  margin-bottom: 20px;
+}
+
+.modalStore {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.modalStoreName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.modalStoreDesc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.modalStoreCity {
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.modalStoreHours {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.modalStoreHours span {
+  color: #05a550;
+  font-weight: 700;
+}
+
+.modalStoreLinks {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.modalStoreLink {
+  color: #05a550;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modalApplyBtn {
+  border: 2px solid #05a550;
+  background: none;
+  color: #05a550;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.modalApplyBtn:hover {
+  background-color: #05a550;
+  color: #fff;
+}
+
+.modalRight {
+  width: 320px;
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalDirectionsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+}
+
+.modalDirectionsBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.modalOrderBtn {
+  background-color: #05a550;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modalOrderBtn:hover {
+  background-color: #047a3d;
+}
+
+.modalPhoneBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+}
+
+.modalPhoneBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.modalTextBtn {
+  background-color: #05a550;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modalTextBtn:hover {
+  background-color: #047a3d;
+}
+
+.modalTextNote {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 32px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.modalFooterClose {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modalFooterClose:hover {
+  color: #000;
+}
