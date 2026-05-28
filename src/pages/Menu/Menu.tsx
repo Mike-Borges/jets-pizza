@@ -4,13 +4,14 @@ import MenuNav from '../../components/MenuNav/MenuNav';
 import PizzaNav from '../../components/PizzaNav/PizzaNav';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import Footer from '../../components/Footer/Footer';
-import { crustOptions } from '../../data/pizzaData';
-import { pizzas, exclusives, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
+import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
+import { pizzas, exclusives, crusts, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
 import styles from './Menu.module.css';
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState('Pizza');
   const [activePizzaCategory, setActivePizzaCategory] = useState('Specialty');
+  const [selectedCrustModal, setSelectedCrustModal] = useState<string | null>(null);
 
   const pizzaRef = useRef<HTMLElement>(null);
   const sidekicksRef = useRef<HTMLElement>(null);
@@ -95,17 +96,11 @@ export default function Menu() {
 
   const scrollToSection = (category: string) => {
     setActiveCategory(category);
-    sectionRefs[category as keyof typeof sectionRefs]?.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    sectionRefs[category as keyof typeof sectionRefs]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const scrollToPizzaSection = (category: string) => {
-    pizzaSubRefs[category as keyof typeof pizzaSubRefs]?.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    pizzaSubRefs[category as keyof typeof pizzaSubRefs]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -123,29 +118,39 @@ export default function Menu() {
         <div ref={specialtyRef} className={styles.menuSubSection}>
           <h3 className={styles.menuSubTitle}>Specialty Pizzas</h3>
           <div className={styles.menuGrid}>
-            {pizzas.map((pizza) => (
-              <MenuCard key={pizza.id} name={pizza.name} price={pizza.price} image={pizza.image} />
+            {pizzas.map((item) => (
+              <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
             ))}
           </div>
         </div>
 
-        <div ref={crustRef} className={styles.menuSubSection}>
-          <h3 className={styles.menuSubTitle}>Crust Styles</h3>
-          <div className={styles.menuSectionCrusts}>
-            {crustOptions.map((crust) => (
-              <div key={crust.id} className={styles.crustCard}>
-                <p className={styles.crustName}>{crust.name}</p>
-                <p className={styles.crustDesc}>{crust.description}</p>
-              </div>
-            ))}
-          </div>
+       <div ref={crustRef} className={styles.menuSubSection}>
+  <h3 className={styles.menuSubTitle}>Crust Styles</h3>
+  <div className={styles.menuSectionCrusts}>
+    {crusts.map((crust) => (
+      <div
+        key={crust.id}
+        className={styles.crustCard}
+        onClick={() => setSelectedCrustModal(crust.name)}
+      >
+        <div className={styles.crustCardImg}>
+          <img src={crust.image} alt={crust.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
+        <p className={styles.crustName}>{crust.name}</p>
+        <p className={styles.crustDesc}>{crust.description}</p>
+        <button className={styles.crustBtn}>Customize & Add</button>
+      </div>
+    ))}
+  </div>
+</div>
+
+
 
         <div ref={exclusivesRef} className={styles.menuSubSection}>
           <h3 className={styles.menuSubTitle}>Jet's Exclusives</h3>
           <div className={styles.menuGrid}>
             {exclusives.map((item) => (
-              <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+              <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
             ))}
           </div>
         </div>
@@ -157,7 +162,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {sidekicks.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -168,7 +173,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {salads.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -179,7 +184,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {calzones.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -190,7 +195,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {drinks.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} type={item.type} />
           ))}
         </div>
       </section>
@@ -202,7 +207,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {desserts.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -214,7 +219,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {vegan.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -226,7 +231,7 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {vegetarian.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
@@ -238,11 +243,19 @@ export default function Menu() {
         </div>
         <div className={styles.menuGrid}>
           {glutenFree.map((item) => (
-            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} />
+            <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
         </div>
       </section>
-
+ {selectedCrustModal && (
+        <MenuCardCustomize
+          name={selectedCrustModal}
+          image=""
+          type="pizza-byo"
+          preSelectedCrust={selectedCrustModal}
+          onClose={() => setSelectedCrustModal(null)}
+        />
+      )}
       <Footer />
     </div>
   );

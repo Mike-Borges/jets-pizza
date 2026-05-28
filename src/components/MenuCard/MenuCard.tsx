@@ -6,9 +6,11 @@ interface MenuCardProps {
   image: string;
   name: string;
   price: string;
+  desc?: string;
+  type: string;
 }
 
-export default function MenuCard({ image, name, price }: MenuCardProps) {
+export default function MenuCard({ image, name, price, desc, type }: MenuCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,6 +19,7 @@ export default function MenuCard({ image, name, price }: MenuCardProps) {
         <img src={image} alt={name} className={styles.menuCardImg} />
         <div className={styles.menuCardInfo}>
           <p className={styles.menuCardName}>{name}</p>
+          {desc && <p className={styles.menuCardDesc}>{desc}</p>}
           <p className={styles.menuCardPrice}>{price}</p>
         </div>
         <div className={styles.menuCardActions}>
@@ -29,6 +32,7 @@ export default function MenuCard({ image, name, price }: MenuCardProps) {
         <MenuCardCustomize
           name={name}
           image={image}
+          type={type}
           onClose={() => setIsOpen(false)}
         />
       )}

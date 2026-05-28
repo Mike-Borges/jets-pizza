@@ -19,72 +19,98 @@ import ddBread from '../assets/dd-bread.png';
 import thin from '../assets/thin.png';
 import handTossed from '../assets/hand-tossed.png';
 import detroitStyle from '../assets/detroit-style.png';
-import byopizza from '../assets/byo-pizza.png';
+import nyStyle from '../assets/ny-style.png';
+import cauliflower from '../assets/cauliflower.png';
+import allMeaty from '../assets/all-meaty.png';
+import alohaBBQ from '../assets/aloha-bbq-chicken.png';
+import bbqChicken from '../assets/bbq-chicken.png';
+import blt from '../assets/blt.png';
+import chickenBaconRanch from '../assets/chicken-bacon-ranch.png';
+import eugeneSupreme from '../assets/eugene-supreme.png';
+import hawaiian from '../assets/hawaiian.png';
+import jet10 from '../assets/jet-10.png';
+import byoPizzaText from '../assets/byo-pizza-text.png';
+
+
 
 export const pizzas = [
-  { id: 1, name: 'Build Your Own Pizza', price: '$10.00', image: byopizza },
-  { id: 2, name: 'Ultimate Pepperoni', price: '$10.00', image: ultimatePep },
-  { id: 3, name: 'All Meaty®', price: '$10.00', image: '' },
-  { id: 4, name: 'Aloha BBQ Chicken', price: '$10.00', image: '' },
-  { id: 5, name: 'BLT', price: '$10.00', image: '' },
-  { id: 6, name: 'BBQ Chicken', price: '$10.00', image: '' },
-  { id: 7, name: 'Hawaiian', price: '$10.00', image: '' },
-  { id: 8, name: 'Jet 10®', price: '$10.00', image: '' },
+  { id: 1, name: 'All Meaty®', price: '$18.77', image: allMeaty, desc: 'Pizza sauce, premium mozzarella, pepperoni, ham, bacon, Italian sausage & hamburger', type: 'pizza-specialty' },
+  { id: 2, name: 'Aloha BBQ Chicken', price: '$18.77', image: alohaBBQ, desc: 'BBQ sauce, premium mozzarella, grilled chicken, pineapple & bacon', type: 'pizza-specialty' },
+  { id: 3, name: 'BBQ Chicken', price: '$18.77', image: bbqChicken, desc: 'BBQ sauce, premium mozzarella, grilled chicken, bacon & red onions', type: 'pizza-specialty' },
+  { id: 4, name: 'BLT', price: '$18.77', image: blt, desc: 'Premium mozzarella, bacon, lettuce, tomatoes & mayo', type: 'pizza-specialty' },
+  { id: 5, name: 'Buffalo Ranch Chicken', price: '$18.77', image: '', desc: 'Jet\'s® Ranch, premium mozzarella, grilled chicken, bacon & red onions, topped with mild buffalo sauce', type: 'pizza-specialty' },
+  { id: 6, name: 'Chicken Bacon Ranch', price: '$18.77', image: chickenBaconRanch, desc: 'Jet\'s® Ranch, premium mozzarella, cheddar, grilled chicken & bacon', type: 'pizza-specialty' },
+  { id: 7, name: 'Eugene Supreme®', price: '$18.77', image: eugeneSupreme, desc: 'Pizza sauce, premium mozzarella, Italian sausage, onions, green peppers & mild peppers', type: 'pizza-specialty' },
+  { id: 8, name: 'Hawaiian', price: '$18.77', image: hawaiian, desc: 'Pizza sauce, premium mozzarella, ham, bacon & pineapple', type: 'pizza-specialty' },
+  { id: 9, name: 'Super Special', price: '$18.77', image: '', desc: 'Pizza sauce, premium mozzarella, pepperoni, ham, mushrooms, onions & green peppers', type: 'pizza-specialty' },
+  { id: 10, name: 'Ultimate Pepperoni', price: '$18.77', image: ultimatePep, desc: 'Pizza sauce, premium mozzarella, traditional, bold & shredded pepperoni', type: 'pizza-specialty' },
+  { id: 11, name: 'Veggie', price: '$18.77', image: '', desc: 'Pizza sauce, premium mozzarella, mushrooms, onions, green peppers, black olives & tomatoes', type: 'pizza-specialty' },
+  { id: 12, name: 'Jet 10®', price: '$19.36', image: jet10, desc: 'Pizza sauce, premium mozzarella, pepperoni, hamburger, Italian sausage, bacon, mushrooms, onions, green peppers & black olives', type: 'pizza-specialty' },
+  { id: 13, name: 'Build Your Own Pizza', price: '$14.00', image: byoPizzaText, desc: 'Create your pizza with a choice of delicious crusts, sauces & premium quality ingredients', type: 'pizza-byo' },
 ];
 
 export const exclusives = [
-  { id: 1, name: '4 Corner Pizza®', price: '$21.50', image: fourCornerExc },
-  { id: 2, name: '8 Corner Pizza®', price: '$21.50', image: eightCornerExc },
+  { id: 1, name: '4 Corner Pizza®', price: '$18.77', image: fourCornerExc, desc: 'Detroit-style deep dish with 4 crispy corners', type: 'pizza-exclusive' },
+  { id: 2, name: '8 Corner Pizza®', price: '$21.50', image: eightCornerExc, desc: 'Detroit-style deep dish with 8 crispy corners', type: 'pizza-exclusive' },
 ];
 
+export const crusts = [
+  { id: 1, name: 'Detroit-Style Deep Dish', image: detroitStyle, description: 'Crispy square golden crust with a fluffy interior' },
+  { id: 2, name: 'Hand-Tossed Round', image: handTossed, description: 'Classic hand-tossed round with a golden crust' },
+  { id: 3, name: 'Thin Crust', image: thin, description: 'Light and crispy thin crust' },
+  { id: 4, name: 'NY Style', image: nyStyle, description: 'Large foldable NY style pizza crust' },
+  { id: 5, name: 'Seasoned Cauliflower', image: cauliflower, description: 'Cauliflower crust seasoned with herbs and spices. ' },
+  { id: 6, name: 'Gluten-Free', image: veganGluten, description: 'Small gluten-free crust. ' },
+]
+
 export const vegan = [
-  { id: 1, name: 'NY Style', price: '$10.00', image: veganNy },
-  { id: 2, name: 'Thin Crust', price: '$10.00', image: veganThin },
-  { id: 3, name: 'Gluten-Free Pizza', price: '$10.00', image: veganGluten },
+  { id: 1, name: 'NY Style', price: '$19.50', image: veganNy, desc: 'Large foldable NY style pizza with vegan toppings', type: 'pizza-dietary' },
+  { id: 2, name: 'Thin Crust', price: '$14.00', image: veganThin, desc: 'Light and crispy thin crust with vegan toppings', type: 'pizza-dietary' },
+  { id: 3, name: 'Gluten-Free', price: '$14.00', image: veganGluten, desc: 'Gluten-free crust with vegan toppings', type: 'pizza-gf' },
 ];
 
 export const vegetarian = [
-  { id: 1, name: 'Detroit-Style Deep Dish', price: '$10.00', image: detroitStyle },
-  { id: 2, name: 'Hand-Tossed Round', price: '$10.00', image: handTossed },
-  { id: 3, name: 'Thin Crust', price: '$10.00', image: thin },
+  { id: 1, name: 'Detroit-Style Deep Dish', price: '$14.00', image: detroitStyle, desc: 'Crispy square golden crust with vegetarian toppings', type: 'pizza-dietary' },
+  { id: 2, name: 'Hand-Tossed Round', price: '$14.00', image: handTossed, desc: 'Classic hand-tossed round with vegetarian toppings', type: 'pizza-dietary' },
+  { id: 3, name: 'Thin Crust', price: '$14.00', image: thin, desc: 'Light crispy thin crust with vegetarian toppings', type: 'pizza-dietary' },
 ];
 
 export const glutenFree = [
-  { id: 1, name: 'Gluten-Free Pizza', price: '$10.00', image: veganGluten },
+  { id: 1, name: 'Gluten-Free Pizza', price: '$14.00', image: veganGluten, desc: 'Small gluten-free crust. May have been exposed to gluten.', type: 'pizza-gf' },
 ];
 
 export const sidekicks = [
-  { id: 1, name: "Triple Cheese Turbo Stix®", price: '$10.00', image: jtsBread },
-  { id: 2, name: "Jet's Bread®", price: '$10.00', image: jbBread },
-  { id: 3, name: 'Deep Dish Bread®', price: '$10.00', image: ddBread },
-  { id: 4, name: 'Jumbo Wings', price: '$10.00', image: '' },
-  { id: 5, name: 'Boneless Wings', price: '$10.00', image: '' },
-  { id: 6, name: 'Jet Sauce', price: '$2.00', image: '' },
+  { id: 1, name: 'Jet\'s Wings (8pcs.)', price: '$11.99', image: '', desc: 'Plain, BBQ, Honey BBQ, Sweet Red Chili, Mild Buffalo or Hot', type: 'wings' },
+  { id: 2, name: 'Boneless Chicken (10oz)', price: '$11.99', image: '', desc: 'Plain, BBQ, Honey BBQ, Sweet Red Chili, Mild Buffalo or Hot', type: 'wings' },
+  { id: 3, name: 'Jet\'s Bread®', price: '$9.99', image: jtsBread, desc: 'Served with your choice of dipping sauce (12 pcs.)', type: 'bread' },
+  { id: 4, name: 'Deep Dish Bread®', price: '$9.99', image: ddBread, desc: 'Served with your choice of dipping sauce (12 pcs.)', type: 'bread' },
+  { id: 5, name: 'Triple Cheese Turbo Stix', price: '$9.99', image: jbBread, desc: 'Served with your choice of dipping sauce (12 pcs.)', type: 'bread' },
+  { id: 6, name: 'Hot Slices', price: '$5.99', image: '', desc: 'Jet\'s Detroit-Style slices with premium mozzarella & pepperoni', type: 'slice' },
 ];
 
 export const salads = [
-  { id: 1, name: 'Garden Salad', price: '$10.00', image: gardenSalad },
-  { id: 2, name: 'Greek Salad', price: '$10.00', image: greekSalad },
-  { id: 3, name: 'Antipasto Salad', price: '$10.00', image: antipastoSalad },
-  { id: 4, name: 'Chicken Caesar Salad', price: '$10.00', image: '' },
+  { id: 1, name: 'Antipasto Salad', price: '$9.99', image: antipastoSalad, desc: 'Served with your choice of dressing', type: 'salad' },
+  { id: 2, name: 'Garden Salad', price: '$9.99', image: gardenSalad, desc: 'Served with your choice of dressing', type: 'salad' },
+  { id: 3, name: 'Greek Salad', price: '$9.99', image: greekSalad, desc: 'Served with your choice of dressing', type: 'salad' },
 ];
 
 export const calzones = [
-  { id: 1, name: 'Ham & Cheese Boat', price: '$10.00', image: hamCheeseBoat },
-  { id: 2, name: 'Italian Deli Boat', price: '$10.00', image: italianDeliBoat },
-  { id: 3, name: 'Veggie Boat', price: '$10.00', image: veggieBoat },
+  { id: 1, name: 'Italian Deli Boat®', price: '$9.99', image: italianDeliBoat, desc: 'Calzone style sandwich with Italian dressing', type: 'calzone' },
+  { id: 2, name: 'Ham & Cheese Boat®', price: '$9.99', image: hamCheeseBoat, desc: 'Calzone style sandwich with Italian dressing', type: 'calzone' },
+  { id: 3, name: 'Veggie Boat®', price: '$9.99', image: veggieBoat, desc: 'Calzone style sandwich with Italian dressing', type: 'calzone' },
+  { id: 4, name: 'Jet\'s Boat®', price: '$9.99', image: '', desc: 'Calzone style sandwich with pizza sauce', type: 'calzone' },
 ];
 
 export const drinks = [
-  { id: 1, name: '2-Liter Pepsi', price: '$3.00', image: '' },
-  { id: 2, name: '2-Liter Diet Pepsi', price: '$3.00', image: '' },
-  { id: 3, name: '2-Liter Sierra Mist', price: '$3.00', image: '' },
-  { id: 4, name: '2-Liter Mountain Dew', price: '$3.00', image: '' },
-  { id: 5, name: '2-Liter Root Beer', price: '$3.00', image: '' },
+  { id: 1, name: 'Coca-Cola', price: '$2.49', image: '', type: 'drink' },
+  { id: 2, name: 'Diet Coke', price: '$2.49', image: '', type: 'drink' },
+  { id: 3, name: 'Sprite', price: '$2.49', image: '', type: 'drink' },
+  { id: 4, name: 'Barq\'s Root Beer', price: '$2.49', image: '', type: 'drink' },
+  { id: 5, name: 'Minute Maid Lemonade', price: '$2.49', image: '', type: 'drink' },
 ];
 
 export const desserts = [
-  { id: 1, name: 'Cinnamon Stix', price: '$10.00', image: cinnamonStix },
-  { id: 2, name: 'Chocolate Chip Cookie', price: '$10.00', image: ccCookie },
-  { id: 3, name: 'Chocolate Chip Brownie', price: '$10.00', image: ccBrownie },
+  { id: 1, name: 'Cinnamon Stix (12pcs.)', price: '$8.99', image: cinnamonStix, desc: '130 cal.', type: 'dessert' },
+  { id: 2, name: '8" Chocolate Chip Cookie (8pcs.)', price: '$8.99', image: ccCookie, desc: '150 cal.', type: 'dessert' },
+  { id: 3, name: '8" Chocolate Chip Brownie (8pcs.)', price: '$8.99', image: ccBrownie, desc: '150 cal.', type: 'dessert' },
 ];

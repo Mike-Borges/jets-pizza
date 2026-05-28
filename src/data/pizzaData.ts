@@ -1,12 +1,15 @@
+// pizzaData.ts
 export const crustOptions = [
   {
     id: 1,
     name: 'Detroit-Style Deep Dish',
     description: 'Crispy, square, golden crust baked to perfection',
     sizes: [
-      { name: 'Small', inches: '8"', slices: 4, price: 10.99 },
-      { name: 'Large', inches: '12"', slices: 8, price: 16.99 },
-      { name: 'X-Large', inches: '14"', slices: 10, price: 19.99 },
+      { name: '4 Corner Pizza® / Small', inches: '', slices: 4, price: 14.00 },
+      { name: 'Large', inches: '', slices: 8, price: 19.50 },
+      { name: '8 Corner Pizza®', inches: '', slices: 8, price: 21.50 },
+      { name: 'X-Large', inches: '', slices: 12, price: 24.50 },
+      { name: 'Party Tray', inches: '', slices: 24, price: 46.00 },
     ],
   },
   {
@@ -14,9 +17,9 @@ export const crustOptions = [
     name: 'Hand-Tossed Round',
     description: 'Classic hand-tossed round pizza',
     sizes: [
-      { name: 'Small', inches: '10"', slices: 6, price: 9.99 },
-      { name: 'Medium', inches: '12"', slices: 8, price: 12.99 },
-      { name: 'Large', inches: '14"', slices: 10, price: 15.99 },
+      { name: 'Small', inches: '10"', slices: 4, price: 14.00 },
+      { name: 'Medium', inches: '12"', slices: 8, price: 16.00 },
+      { name: 'Large', inches: '14"', slices: 8, price: 19.50 },
     ],
   },
   {
@@ -24,80 +27,81 @@ export const crustOptions = [
     name: 'Thin Crust',
     description: 'Light and crispy thin crust',
     sizes: [
-      { name: 'Small', inches: '10"', slices: 6, price: 9.99 },
-      { name: 'Medium', inches: '12"', slices: 8, price: 12.99 },
-      { name: 'Large', inches: '14"', slices: 10, price: 15.99 },
+      { name: 'Small', inches: '10"', slices: 4, price: 14.00 },
+      { name: 'Large', inches: '14"', slices: 8, price: 19.50 },
     ],
   },
   {
     id: 4,
-    name: 'NY Style',
+    name: 'NY-Style Round',
     description: 'Large foldable New York style slices',
     sizes: [
-      { name: 'Large', inches: '14"', slices: 8, price: 15.99 },
-      { name: 'X-Large', inches: '16"', slices: 10, price: 18.99 },
+      { name: 'Large', inches: '14"', slices: 6, price: 19.50 },
     ],
   },
   {
     id: 5,
-    name: 'Cauliflower',
-    description: 'Light cauliflower crust option',
+    name: 'Seasoned Cauliflower',
+    description: 'Light seasoned cauliflower crust option',
     sizes: [
-      { name: 'Small', inches: '10"', slices: 6, price: 12.99 },
+      { name: 'Small', inches: '', slices: 4, price: 14.00 },
     ],
   },
   {
     id: 6,
     name: 'Gluten-Free',
-    description: 'Gluten-free crust option',
+    description: 'Gluten-free crust option. May have been exposed to gluten from other foods in our kitchen.',
     sizes: [
-      { name: 'Small', inches: '10"', slices: 6, price: 12.99 },
+      { name: 'Small', inches: '', slices: 4, price: 14.00 },
     ],
   },
 ];
 
 export const turboCrustOptions = [
-  { id: 1, name: 'Butter Garlic Romano' },
-  { id: 2, name: 'Cajun' },
-  { id: 3, name: 'Poppy Seed' },
-  { id: 4, name: 'No Turbo Crust' },
+  { id: 1, name: 'Butter' },
+  { id: 2, name: 'Garlic' },
+  { id: 3, name: 'Romano' },
+  { id: 4, name: 'Cajun' },
+  { id: 5, name: 'Sesame Seed' },
+  { id: 6, name: 'Turbo Crust® (Butter + Garlic + Romano)' },
+  { id: 7, name: 'No Crust Flavor' },
 ];
 
 export const toppingOptions = {
+  sauces: [
+    'Mama Jetts\' Pizza Sauce',
+    'Jet\'s® Ranch',
+    'BBQ',
+    'Mild Buffalo',
+  ],
+  cheese: [
+    'Premium Mozzarella',
+    'Cheddar',
+    'Feta',
+  ],
   meats: [
     'Pepperoni',
+    'Bold Pepperoni',
+    'Shredded Pepperoni',
     'Italian Sausage',
-    'Ham',
+    'Grilled Chicken',
+    'Hamburger',
     'Bacon',
-    'Chicken',
-    'Beef',
+    'Ham',
     'Anchovies',
   ],
   vegetables: [
     'Mushrooms',
     'Green Peppers',
-    'Onions',
-    'Black Olives',
-    'Banana Peppers',
-    'Jalapeños',
-    'Tomatoes',
-    'Spinach',
+    'Mild Peppers',
+    'Jalapeño Peppers',
+    'Kalamata Olives',
+    'Lettuce',
     'Pineapple',
-  ],
-  cheese: [
-    'Extra Cheese',
-    'Premium Mozzarella',
-    'Feta',
-    'Cheddar',
-  ],
-  sauces: [
-    'Jet Sauce',
-    'Tomato Sauce',
-    'Garlic Butter',
-    'BBQ Sauce',
-    'Buffalo Sauce',
-    'Ranch',
-    'No Sauce',
+    'Onions',
+    'Tomatoes',
+    'Red Onions',
+    'Black Olives',
   ],
 };
 
