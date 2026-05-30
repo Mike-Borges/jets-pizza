@@ -64,7 +64,7 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
   };
 
   const getPrice = () => {
-    if (type === 'pizza-byo' || type === 'pizza-specialty' || type === 'pizza-exclusive' || type === 'pizza-dietary') {
+    if (['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary'].includes(type)) {
       return (selectedSize.price * quantity).toFixed(2);
     }
     if (type === 'drink') return (selectedDrinkSize.price * quantity).toFixed(2);
@@ -74,16 +74,21 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
   const isPizza = ['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary', 'pizza-gf'].includes(type);
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeBtn} onClick={onClose}>✕</button>
-        <div className={styles.modalLeft}>
-          <img src={image} alt={name} className={styles.modalImg} />
-          <h2 className={styles.modalName}>{name}</h2>
-        </div>
-        <div className={styles.modalRight}>
+    <div className={styles.page}>
 
-          {/* CRUST — BYO, Specialty, Exclusive, Dietary */}
+      {/* LEFT COLUMN — image + name */}
+      <div className={styles.left}>
+        <img src={image} alt={name} className={styles.image} />
+        <h2 className={styles.name}>{name}</h2>
+      </div>
+
+      {/* RIGHT COLUMN — scrollable options + sticky footer */}
+      <div className={styles.rightWrapper}>
+        <button className={styles.backBtn} onClick={onClose}>← Back to Menu</button>
+
+        <div className={styles.options}>
+
+          {/* CRUST — BYO, Specialty, Dietary */}
           {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -99,7 +104,7 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
             </div>
           )}
 
-          {/* SIZE — BYO, Specialty, Exclusive, Dietary */}
+          {/* SIZE — BYO, Specialty, Dietary */}
           {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -243,7 +248,7 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
             </div>
           )}
 
-          {/* BAKE — Pizza types */}
+          {/* BAKE — Pizza types except GF */}
           {isPizza && type !== 'pizza-gf' && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -275,7 +280,7 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
             </div>
           )}
 
-          {/* WINGS SAUCE */}
+          {/* WINGS */}
           {type === 'wings' && (
             <>
               <div className={styles.section}>
@@ -471,16 +476,18 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
             </div>
           )}
 
-          <div className={styles.modalFooter}>
-            <div className={styles.qtyControl}>
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-              <span>{quantity}</span>
-              <button onClick={() => setQuantity(quantity + 1)}>+</button>
-            </div>
-            <button className={styles.addBtn}>ADD ({getPrice()})</button>
-          </div>
-
         </div>
+
+        {/* STICKY FOOTER */}
+        <div className={styles.footer}>
+          <div className={styles.qtyControl}>
+            <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+            <span>{quantity}</span>
+            <button onClick={() => setQuantity(quantity + 1)}>+</button>
+          </div>
+          <button className={styles.addBtn}>ADD ({getPrice()})</button>
+        </div>
+
       </div>
     </div>
   );

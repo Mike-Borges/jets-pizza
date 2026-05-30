@@ -114,3 +114,25 @@ export const desserts = [
   { id: 2, name: '8" Chocolate Chip Cookie (8pcs.)', price: '$8.99', image: ccCookie, desc: '150 cal.', type: 'dessert' },
   { id: 3, name: '8" Chocolate Chip Brownie (8pcs.)', price: '$8.99', image: ccBrownie, desc: '150 cal.', type: 'dessert' },
 ];
+
+// Helper: converts a name to a URL slug e.g. "All Meaty®" → "all-meaty"
+export const toSlug = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+ 
+// Flat list of every customizable item across all categories
+export const allItems = [
+  ...pizzas,
+  ...exclusives,
+  ...vegan,
+  ...vegetarian,
+  ...glutenFree,
+  ...sidekicks,
+  ...salads,
+  ...calzones,
+  ...drinks,
+  ...desserts,
+];
+ 
+// Look up any item by its slug
+export const getItemBySlug = (slug: string) =>
+  allItems.find((item) => toSlug(item.name) === slug) ?? null;

@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import MenuCardCustomize from '../MenuCardCustomize/MenuCardCustomize';
+import { useNavigate } from 'react-router-dom';
 import styles from './MenuCard.module.css';
 
 interface MenuCardProps {
@@ -10,32 +9,32 @@ interface MenuCardProps {
   type: string;
 }
 
+const toSlug = (name: string) =>
+  name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
 export default function MenuCard({ image, name, price, desc, type }: MenuCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCustomize = () => {
+    navigate(`/menu/customize/${toSlug(name)}`);
+  };
 
   return (
-    <>
-      <div className={styles.menuCard} onClick={() => setIsOpen(true)}>
-        <img src={image} alt={name} className={styles.menuCardImg} />
-        <div className={styles.menuCardInfo}>
-          <p className={styles.menuCardName}>{name}</p>
-          {desc && <p className={styles.menuCardDesc}>{desc}</p>}
-          <p className={styles.menuCardPrice}>{price}</p>
-        </div>
-        <div className={styles.menuCardActions}>
-          <button className={styles.menuCardBtn} onClick={(e) => { e.stopPropagation(); setIsOpen(true); }}>
-            Customize & Add
-          </button>
-        </div>
+    <div className={styles.menuCard} onClick={handleCustomize}>
+      <img src={image} alt={name} className={styles.menuCardImg} />
+      <div className={styles.menuCardInfo}>
+        <p className={styles.menuCardName}>{name}</p>
+        {desc && <p className={styles.menuCardDesc}>{desc}</p>}
+        <p className={styles.menuCardPrice}>{price}</p>
       </div>
-      {isOpen && (
-        <MenuCardCustomize
-          name={name}
-          image={image}
-          type={type}
-          onClose={() => setIsOpen(false)}
-        />
-      )}
-    </>
+      <div className={styles.menuCardActions}>
+        <button
+          className={styles.menuCardBtn}
+          onClick={(e) => { e.stopPropagation(); handleCustomize(); }}
+        >
+          Customize & Add
+        </button>
+      </div>
+    </div>
   );
 }
