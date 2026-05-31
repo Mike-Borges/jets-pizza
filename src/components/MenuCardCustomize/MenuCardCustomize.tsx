@@ -18,16 +18,18 @@ const veganCheese = ['Vegan Cheese'];
 interface MenuCardCustomizeProps {
   name: string;
   image: string;
+  desc?: string;
   type: string;
   preSelectedCrust?: string;
   onClose: () => void;
 }
 
-export default function MenuCardCustomize({ name, image, type, preSelectedCrust, onClose }: MenuCardCustomizeProps) {
+export default function MenuCardCustomize({ name, image, desc, type, preSelectedCrust, onClose }: MenuCardCustomizeProps) {
   const initialCrust = preSelectedCrust
     ? crustOptions.find((c) => c.name === preSelectedCrust) ?? crustOptions[0]
     : crustOptions[0];
 
+  const [crustChosen, setCrustChosen] = useState(false);
   const [selectedCrust, setSelectedCrust] = useState(initialCrust);
   const [selectedSize, setSelectedSize] = useState(initialCrust.sizes[0]);
   const [selectedSauce, setSelectedSauce] = useState(toppingOptions.sauces[0]);
@@ -53,6 +55,7 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
   const handleCrustChange = (crust: typeof crustOptions[0]) => {
     setSelectedCrust(crust);
     setSelectedSize(crust.sizes[0]);
+    setCrustChosen(true);
   };
 
   const toggle = (item: string, list: string[], setList: (l: string[]) => void) => {
@@ -76,19 +79,25 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
   return (
     <div className={styles.page}>
 
-      {/* LEFT COLUMN — image + name */}
+      {/* LEFT COLUMN */}
       <div className={styles.left}>
         <img src={image} alt={name} className={styles.image} />
         <h2 className={styles.name}>{name}</h2>
+        {desc && <p className={styles.desc}>{desc}</p>}
+        {isPizza && (
+          <div className={styles.halfBanner}>
+            <button className={styles.halfBtn}>GO TO HALF & HALF</button>
+          </div>
+        )}
       </div>
 
-      {/* RIGHT COLUMN — scrollable options + sticky footer */}
+      {/* RIGHT COLUMN */}
       <div className={styles.rightWrapper}>
         <button className={styles.backBtn} onClick={onClose}>← Back to Menu</button>
 
         <div className={styles.options}>
 
-          {/* CRUST — BYO, Specialty, Dietary */}
+          {/* CRUST — BYO, Specialty, Dietary (FIRST) */}
           {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -104,7 +113,12 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
             </div>
           )}
 
-          {/* SIZE — BYO, Specialty, Dietary */}
+          {/* Conditional sections based on crust choice */}
+
+          {crustChosen && (
+            <>
+
+          {/* SIZE — BYO, Specialty, Dietary (SECOND) */}
           {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -278,6 +292,9 @@ export default function MenuCardCustomize({ name, image, type, preSelectedCrust,
                 </label>
               ))}
             </div>
+          )}
+
+          </>
           )}
 
           {/* WINGS */}

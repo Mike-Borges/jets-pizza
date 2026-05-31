@@ -1,8 +1,8 @@
 .footer {
   width: 100%;
-  background-color: #fff;
+  background-color: #f5e1cf;
   box-sizing: border-box;
-  padding-top: 40px;
+
   font-family: "Poppins", var(--sans);
   font-size: 1.5rem;
 }
@@ -120,11 +120,13 @@
   padding: 20px 80px;
   border-top: 1px solid #e0e0e0;
   box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
 }
 
 .footerCopyright {
   font-size: 0.9rem;
-  color: #000;
+  color: #fff;
 }
 
 .footerBottomLinks {
@@ -134,7 +136,7 @@
 }
 
 .footerBottomLink {
-  color: #000;
+  color: #fff;
   font-size: 0.9rem;
   text-decoration: none;
 }
@@ -144,5 +146,5 @@
 }
 
 .footerDivider {
-  color: #000;
+  color: #fff;
 }

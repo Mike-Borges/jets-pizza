@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getItemBySlug } from '../../data/menuData';
 import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
@@ -10,6 +11,10 @@ export default function CustomizePage() {
   const navigate = useNavigate();
 
   const item = slug ? getItemBySlug(slug) : null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
 
   if (!item) {
     return (
@@ -31,6 +36,7 @@ export default function CustomizePage() {
         <MenuCardCustomize
           name={item.name}
           image={item.image}
+          desc={'desc' in item ? (item as { desc?: string }).desc : undefined}
           type={item.type}
           onClose={() => navigate('/menu')}
         />

@@ -30,7 +30,7 @@ import eugeneSupreme from '../assets/eugene-supreme.png';
 import hawaiian from '../assets/hawaiian.png';
 import jet10 from '../assets/jet-10.png';
 import byoPizzaText from '../assets/byo-pizza-text.png';
-
+import buffaloRanch from '../assets/buffalo-ranch.png';
 
 
 export const pizzas = [
@@ -38,7 +38,7 @@ export const pizzas = [
   { id: 2, name: 'Aloha BBQ Chicken', price: '$18.77', image: alohaBBQ, desc: 'BBQ sauce, premium mozzarella, grilled chicken, pineapple & bacon', type: 'pizza-specialty' },
   { id: 3, name: 'BBQ Chicken', price: '$18.77', image: bbqChicken, desc: 'BBQ sauce, premium mozzarella, grilled chicken, bacon & red onions', type: 'pizza-specialty' },
   { id: 4, name: 'BLT', price: '$18.77', image: blt, desc: 'Premium mozzarella, bacon, lettuce, tomatoes & mayo', type: 'pizza-specialty' },
-  { id: 5, name: 'Buffalo Ranch Chicken', price: '$18.77', image: '', desc: 'Jet\'s® Ranch, premium mozzarella, grilled chicken, bacon & red onions, topped with mild buffalo sauce', type: 'pizza-specialty' },
+  { id: 5, name: 'Buffalo Ranch Chicken', price: '$18.77', image: buffaloRanch, desc: 'Jet\'s® Ranch, premium mozzarella, grilled chicken, bacon & red onions, topped with mild buffalo sauce', type: 'pizza-specialty' },
   { id: 6, name: 'Chicken Bacon Ranch', price: '$18.77', image: chickenBaconRanch, desc: 'Jet\'s® Ranch, premium mozzarella, cheddar, grilled chicken & bacon', type: 'pizza-specialty' },
   { id: 7, name: 'Eugene Supreme®', price: '$18.77', image: eugeneSupreme, desc: 'Pizza sauce, premium mozzarella, Italian sausage, onions, green peppers & mild peppers', type: 'pizza-specialty' },
   { id: 8, name: 'Hawaiian', price: '$18.77', image: hawaiian, desc: 'Pizza sauce, premium mozzarella, ham, bacon & pineapple', type: 'pizza-specialty' },
