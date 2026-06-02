@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import PizzaNav from '../../components/PizzaNav/PizzaNav';
@@ -16,6 +17,9 @@ export default function Menu() {
   const [activePizzaCategory, setActivePizzaCategory] = useState('Specialty');
   const [selectedCrustModal, setSelectedCrustModal] = useState<string | null>(null);
 
+  // ─── ROUTER ───────────────────────────────────────────────────────────────────
+  const location = useLocation();
+
   // ─── SECTION REFS ─────────────────────────────────────────────────────────────
   const pizzaRef = useRef<HTMLElement>(null);
   const sidekicksRef = useRef<HTMLElement>(null);
@@ -28,10 +32,10 @@ export default function Menu() {
   const glutenFreeRef = useRef<HTMLElement>(null);
 
   // ─── PIZZA SUB-SECTION REFS ───────────────────────────────────────────────────
-  const specialtyRef = useRef<HTMLDivElement>(null);
+  const featuredDealsRef = useRef<HTMLDivElement>(null);
   const crustRef = useRef<HTMLDivElement>(null);
   const exclusivesRef = useRef<HTMLDivElement>(null);
-  const featuredDealsRef = useRef<HTMLDivElement>(null);
+  const specialtyRef = useRef<HTMLDivElement>(null);
 
   // ─── REF MAPS ─────────────────────────────────────────────────────────────────
   const sectionRefs = {
@@ -47,11 +51,24 @@ export default function Menu() {
   };
 
   const pizzaSubRefs = {
-    Specialty: specialtyRef,
+    'Featured Deals': featuredDealsRef,
     'Crust Styles': crustRef,
     "Jet's Exclusives": exclusivesRef,
-    'Featured Deals': featuredDealsRef,
+    Specialty: specialtyRef,
   };
+
+  // ─── SCROLL TO SECTION FROM NAVIGATE STATE ────────────────────────────────────
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const category = location.state.scrollTo;
+      const ref = sectionRefs[category as keyof typeof sectionRefs];
+      if (ref?.current) {
+        setTimeout(() => {
+          ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
 
   // ─── INTERSECTION OBSERVERS ───────────────────────────────────────────────────
   useEffect(() => {
@@ -71,10 +88,10 @@ export default function Menu() {
     };
 
     const pizzaRefs = {
-      Specialty: specialtyRef,
+      'Featured Deals': featuredDealsRef,
       'Crust Styles': crustRef,
       "Jet's Exclusives": exclusivesRef,
-      'Featured Deals': featuredDealsRef,
+      Specialty: specialtyRef,
     };
 
     Object.entries(refs).forEach(([category, ref]) => {
@@ -126,7 +143,7 @@ export default function Menu() {
       {/* ── PIZZA ── */}
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
 
-        {/* ── FEATURED DEALS ── */}
+        {/* Featured Deals */}
         <div ref={featuredDealsRef} className={styles.menuSubSection}>
           <div className={styles.menuSubHeader}>
             <h3 className={styles.menuSubTitle}>Featured Deals</h3>
@@ -181,6 +198,7 @@ export default function Menu() {
             ))}
           </div>
         </div>
+
       </section>
 
       {/* Specialty Pizzas */}
@@ -306,7 +324,6 @@ export default function Menu() {
           name={selectedCrustModal}
           image=""
           type="pizza-byo"
-          preSelectedCrust={selectedCrustModal}
           onClose={() => setSelectedCrustModal(null)}
         />
       )}
