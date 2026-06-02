@@ -129,14 +129,17 @@
 }
 
 .exclusiveBtn {
-  background-color: #000;
+  background-color: #05a550;
   color: #fff;
   border: none;
-  padding: 10px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  border-radius: 25px;
+  padding: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
   cursor: pointer;
   width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin-top: auto;
 }
 
@@ -198,4 +201,30 @@
 
 .crustBtn:hover {
   background-color: #333;
+}
+
+@media (min-width: 1600px) {
+  .exclusiveGrid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 -80px;
+    padding: 0 80px;
+    max-width: none;
+  }
+
+  .exclusiveCard {
+    height: 500px;
+  }
+
+  .exclusiveCardImg {
+    width: 100%;
+    height: 250px;
+  }
+
+  .exclusiveName {
+    padding: 32px 10px 4px;
+  }
+
+  .exclusiveBtn {
+    font-size: 0.875rem;
+  }
 }
