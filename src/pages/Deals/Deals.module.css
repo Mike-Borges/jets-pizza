@@ -1,0 +1,7 @@
+.deals {
+  display: flex;
+}
+
+.dealsHero {
+  align-items: center;
+}

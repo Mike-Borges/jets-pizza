@@ -1,8 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Menu from './pages/Menu/Menu';
-import CustomizePage from './pages/Customize/CustomizePage';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Menu from "./pages/Menu/Menu";
+import CustomizePage from "./pages/Customize/CustomizePage";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import "./App.css";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/menu/customize/:slug" element={<CustomizePage />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
       </Routes>
     </div>
   );
