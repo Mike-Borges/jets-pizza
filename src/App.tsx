@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Menu from "./pages/Menu/Menu";
 import CustomizePage from "./pages/Customize/CustomizePage";
 import AboutUs from "./pages/AboutUs/AboutUs";
+import CrunchClub from "./pages/CrunchClub/CrunchClub";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/menu/customize/:slug" element={<CustomizePage />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/crunchClub" element={<CrunchClub />} />
       </Routes>
     </div>
   );

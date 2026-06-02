@@ -57,7 +57,7 @@
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-style: Medium;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 34px;
   letter-spacing: 2%;
   vertical-align: middle;
@@ -106,7 +106,7 @@
   opacity: 1;
 }
 
-/* .pepperoni {
-  background: url("../../assets/pepperoni-pizza.png");
-  max-width: 100%;
-} */
+.pepperoni {
+  /* background: url("../../assets/pepperoni-pizza.png"); */
+  /* max-width: 100%; */
+}
