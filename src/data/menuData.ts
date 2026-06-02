@@ -32,6 +32,14 @@ import jet10 from '../assets/jet-10.png';
 import byoPizzaText from '../assets/byo-pizza-text.png';
 import buffaloRanch from '../assets/buffalo-ranch.png';
 
+export const deals = [
+  { id: 1, name: 'Large 3 Top Carryout Special', price: '$17.99', desc: 'Large Pizza with Premium Mozzarella & 3 Toppings (Meat & Veggie toppings only) - Carryout Special' },
+  { id: 2, name: "Mix 'N' Match Any 2", price: '$8.49', desc: "Choose from a 1-Topping 4 Corner Pizza®, 1-Topping Medium Crust Pizza, Small Salad, 1-Topping Jet's Bread, your choice of Bread with dipping sauce, or a delicious Dessert." },
+  { id: 3, name: '$5 Off Any Specialty Pizzas', price: '$5 Off', desc: 'Large Pizza with Premium Mozzarella & 3 Toppings (Meat & Veggie toppings only) - Carryout Special' },
+  { id: 4, name: 'Small 1 Topping Pizza', price: '$11.99', desc: 'Small Detroit-Style Pizza with Premium Mozzarella & 1 Topping (Meat and Veggie Only)' },
+  { id: 5, name: 'Large 1 Topping Pizza', price: '$15.99', desc: 'Large Detroit-Style Pizza with Premium Mozzarella & 1 Topping (Meat and Veggie Only)' },
+  { id: 6, name: 'Medium 1 Topping Pizza', price: '$8.99', desc: 'Medium Hand Tossed Pizza with Premium Mozzarella & 1 Topping (Meat and Veggie Only)' },
+];
 
 export const pizzas = [
   { id: 1, name: 'All Meaty®', price: '$18.77', image: allMeaty, desc: 'Pizza sauce, premium mozzarella, pepperoni, ham, bacon, Italian sausage & hamburger', type: 'pizza-specialty' },

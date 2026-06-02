@@ -1,6 +1,6 @@
 import styles from './PizzaNav.module.css';
 
-const subCategories = ['Crust Styles', "Jet's Exclusives",'Specialty' ];
+const subCategories = ['Featured Deals', 'Crust Styles', "Jet's Exclusives",'Specialty' ];
 
 interface PizzaNavProps {
   activeCategory: string;

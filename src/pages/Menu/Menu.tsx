@@ -5,7 +5,7 @@ import PizzaNav from '../../components/PizzaNav/PizzaNav';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import Footer from '../../components/Footer/Footer';
 import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
-import { pizzas, exclusives, crusts, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
+import { pizzas, exclusives, crusts, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts, deals } from '../../data/menuData';
 import styles from './Menu.module.css';
 
 const DEFAULT_DESC = 'Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®';
@@ -31,6 +31,7 @@ export default function Menu() {
   const specialtyRef = useRef<HTMLDivElement>(null);
   const crustRef = useRef<HTMLDivElement>(null);
   const exclusivesRef = useRef<HTMLDivElement>(null);
+  const featuredDealsRef = useRef<HTMLDivElement>(null);
 
   // ─── REF MAPS ─────────────────────────────────────────────────────────────────
   const sectionRefs = {
@@ -49,6 +50,7 @@ export default function Menu() {
     Specialty: specialtyRef,
     'Crust Styles': crustRef,
     "Jet's Exclusives": exclusivesRef,
+    'Featured Deals': featuredDealsRef,
   };
 
   // ─── INTERSECTION OBSERVERS ───────────────────────────────────────────────────
@@ -72,6 +74,7 @@ export default function Menu() {
       Specialty: specialtyRef,
       'Crust Styles': crustRef,
       "Jet's Exclusives": exclusivesRef,
+      'Featured Deals': featuredDealsRef,
     };
 
     Object.entries(refs).forEach(([category, ref]) => {
@@ -122,46 +125,62 @@ export default function Menu() {
 
       {/* ── PIZZA ── */}
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
-       
+
+        {/* ── FEATURED DEALS ── */}
+        <div ref={featuredDealsRef} className={styles.menuSubSection}>
+          <div className={styles.menuSubHeader}>
+            <h3 className={styles.menuSubTitle}>Featured Deals</h3>
+            <p className={styles.menuSubDesc}>Check out our latest deals and save big on your next order!</p>
+          </div>
+          <div className={styles.dealsGrid}>
+            {deals.map((deal) => (
+              <div key={deal.id} className={styles.dealCard}>
+                <p className={styles.dealName}>{deal.name}</p>
+                <p className={styles.dealDesc}>{deal.desc}</p>
+                <p className={styles.dealPrice}>{deal.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Crust Styles */}
         <div ref={crustRef} className={styles.menuSubSection}>
-  <div className={styles.menuSubHeader}>
-    <h3 className={styles.menuSubTitle}>Crust Styles</h3>
-    <p className={styles.menuSubDesc}>Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®</p>
-  </div>
- <div className={styles.menuSectionCrusts}>
-    {crusts.map((crust) => (
-      <MenuCard
-        key={crust.id}
-        name={crust.name}
-        price=""
-        image={crust.image}
-        desc={crust.description}
-        type="pizza-byo"
-      />
-    ))}
-  </div>
-</div>
+          <div className={styles.menuSubHeader}>
+            <h3 className={styles.menuSubTitle}>Crust Styles</h3>
+            <p className={styles.menuSubDesc}>Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®</p>
+          </div>
+          <div className={styles.menuSectionCrusts}>
+            {crusts.map((crust) => (
+              <MenuCard
+                key={crust.id}
+                name={crust.name}
+                price=""
+                image={crust.image}
+                desc={crust.description}
+                type="pizza-byo"
+              />
+            ))}
+          </div>
+        </div>
 
         {/* Jet's Exclusives */}
         <div ref={exclusivesRef} className={styles.menuSubSection}>
-  <div className={styles.menuSubHeader}>
-    <h3 className={styles.menuSubTitle}>Jet's Exclusives</h3>
-    <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-  </div>
-  <div className={styles.exclusiveGrid}>
-    {exclusives.map((item) => (
-      <div key={item.id} className={styles.exclusiveCard}>
-  <div className={styles.exclusiveCardImg}>
-    <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-  </div>
-  <p className={styles.exclusiveName}>{item.name}</p>
-  <button className={styles.exclusiveBtn}>Customize & Add</button>
-</div>
-    ))}
-  </div>
-</div>
+          <div className={styles.menuSubHeader}>
+            <h3 className={styles.menuSubTitle}>Jet's Exclusives</h3>
+            <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
+          </div>
+          <div className={styles.exclusiveGrid}>
+            {exclusives.map((item) => (
+              <div key={item.id} className={styles.exclusiveCard}>
+                <div className={styles.exclusiveCardImg}>
+                  <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <p className={styles.exclusiveName}>{item.name}</p>
+                <button className={styles.exclusiveBtn}>Customize & Add</button>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Specialty Pizzas */}
