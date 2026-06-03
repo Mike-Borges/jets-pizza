@@ -9,13 +9,65 @@
   align-items: center;
 }
 
+.dealsImageContainer {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 650px;
+  height: 630px;
+}
+
+.dealsRewardsImg {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 600px;
+  height: 600px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dealsRewardsGreen {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 775px;
+  height: 750px;
+  z-index: 1;
+  border-radius: 20px;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
 .dealsTitle {
   color: #ffffff;
   background: url("../../assets/hotDeals.png") no-repeat;
+  padding-bottom: 43px;
+}
+
+.dealsSubtitle {
+  font-family: "Alfa Slab One", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: bold;
+  font-size: 56px;
+  line-height: 80px;
+  letter-spacing: 1%;
+  padding-bottom: 69px;
+}
+
+.dealsText {
+  font-family: "Libre Baskerville", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: 2%;
+  padding-bottom: 31px;
 }
 
 .dealsContainer {
   flex-direction: column;
+  align-items: flex-end;
+  padding-right: 20px;
+  padding-bottom: 31px;
 }
 
 .dealsButton {

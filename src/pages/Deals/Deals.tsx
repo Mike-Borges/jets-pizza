@@ -1,5 +1,7 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import heroGifBorder from "../../assets/jet-home-ani-bx.png";
+import dealsRounded from "../../assets/dealsRoundedHeroImg.png";
 import styles from "./Deals.module.css";
 
 export default function Deals() {
@@ -7,6 +9,20 @@ export default function Deals() {
     <div className={styles.deals}>
       <Header />
       <section className={styles.dealsHero}>
+        <div className={styles.dealsImageContainer}>
+          <img
+            src={heroGifBorder}
+            alt="Green decorative border"
+            className={styles.dealsRewardsGreen}
+          />
+          <div className={styles.dealsRewardsImgBox}>
+            <img
+              src={dealsRounded}
+              alt="Variety of Jet's food"
+              className={styles.dealsRewardsImg}
+            />
+          </div>
+        </div>
         <div className={styles.dealsContainer}>
           <h1 className={styles.dealsTitle}>HOT DEALS</h1>
           <h2 className={styles.dealsSubtitle}>Find A Fresh Deal Near You!</h2>
@@ -14,8 +30,8 @@ export default function Deals() {
             To see all deals & deal pricing find your local store and click the
             Hot Deals page.
           </p>
+          <button className={styles.dealsButton}>Find your local Jet's</button>
         </div>
-        <button className={styles.dealsButton}>Find your local Jet's</button>
       </section>
       <Footer />
     </div>
