@@ -4,6 +4,7 @@ import Menu from "./pages/Menu/Menu";
 import CustomizePage from "./pages/Customize/CustomizePage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import CrunchClub from "./pages/CrunchClub/CrunchClub";
+import Deals from "./pages/Deals/Deals";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/menu/customize/:slug" element={<CustomizePage />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/crunchClub" element={<CrunchClub />} />
+        <Route path="/deals" element={<Deals />} />
       </Routes>
     </div>
   );

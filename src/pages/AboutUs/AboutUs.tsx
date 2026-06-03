@@ -59,6 +59,18 @@ export default function AboutUs() {
             className={styles.pepperoniImage}
           />
         </div>
+        <div className={styles.aboutUsLowerTextContainer}>
+          <h1 className={styles.aboutUsLowerTitle}>
+            Better, because it has to be.
+          </h1>
+          <p className={styles.aboutUsLowerText}>
+            To this day, Jet’s® stands for the freshest vine-ripened tomatoes,
+            Italian herbs and spices, dough prepared by hand each day, and
+            hand-grated, premium mozzarella cheese. Of course, a few things have
+            changed. That first location has grown to more than 400 in 22
+            states.
+          </p>
+        </div>
       </section>
       <Footer />
     </div>
