@@ -68,16 +68,16 @@
 /* ─── GRIDS ─────────────────────────────────────────────────────────────────── */
 .menuGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  padding: 0 80px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .menuSectionCrusts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-
   box-sizing: border-box;
   width: 100%;
 }
@@ -203,6 +203,51 @@
   background-color: #333;
 }
 
+/* ─── DEALS ─────────────────────────────────────────────────────────────────── */
+.dealsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 80px;
+}
+
+.dealCard {
+  background-color: #fff;
+  border: 4px dashed #9d9d9d;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.dealCard:hover {
+  border-color: #05a550;
+}
+
+.dealName {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+}
+
+.dealDesc {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+  flex: 1;
+}
+
+.dealPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-red);
+  margin: 0;
+}
+
+/* ─── MEDIA QUERY ────────────────────────────────────────────────────────────── */
 @media (min-width: 1600px) {
   .exclusiveGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -223,242 +268,7 @@
   .exclusiveName {
     padding: 32px 10px 4px;
   }
-  /* ─── PAGE WRAPPER ─────────────────────────────────────────────────────────── */
-  .menu {
-    width: 100%;
-    background: url("../../assets/jet-home.svg") no-repeat center center / cover;
-    box-sizing: border-box;
-  }
 
-  /* ─── MAIN SECTIONS ─────────────────────────────────────────────────────────── */
-  .menuSection {
-    padding: 60px 80px;
-    border-bottom: 1px solid #fff;
-    scroll-margin-top: 201px;
-  }
-
-  .menuSectionHeader {
-    margin-bottom: 32px;
-  }
-
-  .menuSectionTitle {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #000;
-    font-family: "Bitter", sans-serif;
-    margin-bottom: 8px;
-  }
-
-  .menuSectionDesc {
-    font-size: 0.875rem;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* ─── SUB SECTIONS ──────────────────────────────────────────────────────────── */
-  .menuSubSection {
-    scroll-margin-top: 201px;
-    margin-bottom: 48px;
-  }
-
-  .menuSubHeader {
-    background: var(--brand-green);
-    margin: 0 -80px 20px;
-    padding: 8px 80px;
-    width: calc(100% + 160px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .menuSubTitle {
-    font-size: 3.125rem;
-    font-weight: 400;
-    color: #000;
-    font-family: "Alfa Slab One", sans-serif;
-    margin: 0;
-  }
-
-  .menuSubDesc {
-    font-size: 1rem;
-    color: #fff;
-    margin: 4px 0 0;
-    font-family: "Bitter", sans-serif;
-  }
-
-  /* ─── GRIDS ─────────────────────────────────────────────────────────────────── */
-  .menuGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 40px;
-    padding: 40px 80px;
-  }
-
-  .menuSectionCrusts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 40px;
-    padding: 40px 80px;
-  }
-
-  /* ─── EXCLUSIVE CARDS ───────────────────────────────────────────────────────── */
-  .exclusiveCard {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .exclusiveCard:hover {
-    border-color: #05a550;
-  }
-
-  .exclusiveCardImg {
-    width: 100%;
-    height: 200px;
-    background-color: #231f20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .exclusiveName {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000;
-    padding: 10px 10px 4px;
-  }
-
-  .exclusiveDesc {
-    font-size: 0.8rem;
-    color: #666;
-    text-align: center;
-    padding: 0 10px 10px;
-  }
-
-  .exclusiveBtn {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    margin-top: auto;
-  }
-
-  .exclusiveBtn:hover {
-    background-color: #333;
-  }
-
-  /* ─── CRUST CARDS ───────────────────────────────────────────────────────────── */
-  .crustCard {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .crustCard:hover {
-    border-color: #05a550;
-  }
-
-  .crustCardImg {
-    width: 100%;
-    height: 200px;
-    background-color: #231f20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .crustName {
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000;
-    padding: 10px 10px 4px;
-  }
-
-  .crustDesc {
-    font-size: 0.8rem;
-    color: #666;
-    text-align: center;
-    padding: 0 10px 10px;
-  }
-
-  .crustBtn {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    margin-top: auto;
-  }
-
-  .crustBtn:hover {
-    background-color: #333;
-  }
-
-  /* ─── DEALS ─────────────────────────────────────────────────────────────────── */
-  .dealsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 0 80px;
-  }
-
-  .dealCard {
-    background-color: #fff;
-    border: 4px dashed #9d9d9d;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 400px;
-    cursor: pointer;
-  }
-
-  .dealCard:hover {
-    border-color: #05a550;
-  }
-
-  .dealName {
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #000;
-    margin: 0;
-  }
-
-  .dealDesc {
-    font-size: 0.875rem;
-    color: #666;
-    margin: 0;
-    flex: 1;
-  }
-
-  .dealPrice {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--brand-red);
-    margin: 0;
-  }
   .exclusiveBtn {
     font-size: 0.875rem;
   }

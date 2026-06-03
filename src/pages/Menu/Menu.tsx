@@ -207,7 +207,7 @@ export default function Menu() {
           <h3 className={styles.menuSubTitle}>Specialty Pizzas</h3>
           <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
         </div>
-        <div className={styles.menuGrid}>
+        <div className={styles.menuGrid} style={{ padding: '0 80px' }}>
           {pizzas.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
           ))}
