@@ -9,32 +9,13 @@
 .menuSection {
   padding: 60px 80px;
   border-bottom: 1px solid #fff;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 169px;
   overflow: visible;
-}
-
-.menuSectionHeader {
-  margin-bottom: 32px;
-}
-
-.menuSectionTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000;
-  font-family: "Bitter", sans-serif;
-  margin-bottom: 8px;
-}
-
-.menuSectionDesc {
-  font-size: 0.875rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 /* ─── SUB SECTIONS ──────────────────────────────────────────────────────────── */
 .menuSubSection {
-  scroll-margin-top: 160px;
+  scroll-margin-top: 201px;
   margin-bottom: 48px;
   overflow: visible;
 }
