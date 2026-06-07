@@ -3,10 +3,11 @@ import { useLocation } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import PizzaNav from '../../components/PizzaNav/PizzaNav';
+import FeaturedDeals from '../../components/FeaturedDeals/FeaturedDeals';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import Footer from '../../components/Footer/Footer';
 import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
-import { pizzas, exclusives, crusts, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts, deals } from '../../data/menuData';
+import { pizzas, exclusives, crusts, vegan, vegetarian, glutenFree, sidekicks, salads, calzones, drinks, desserts } from '../../data/menuData';
 import styles from './Menu.module.css';
 
 const DEFAULT_DESC = 'Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®';
@@ -143,22 +144,7 @@ export default function Menu() {
       {/* ── PIZZA ── */}
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
 
-        {/* Featured Deals */}
-        <div ref={featuredDealsRef} className={styles.menuSubSection}>
-          <div className={styles.menuSubHeader}>
-            <h3 className={styles.menuSubTitle}>Featured Deals</h3>
-            <p className={styles.menuSubDesc}>Check out our latest deals and save big on your next order!</p>
-          </div>
-          <div className={styles.dealsGrid}>
-            {deals.map((deal) => (
-              <div key={deal.id} className={styles.dealCard}>
-                <p className={styles.dealName}>{deal.name}</p>
-                <p className={styles.dealDesc}>{deal.desc}</p>
-                <p className={styles.dealPrice}>{deal.price}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <FeaturedDeals sectionRef={featuredDealsRef} />
 
         {/* Crust Styles */}
         <div ref={crustRef} className={styles.menuSubSection}>
