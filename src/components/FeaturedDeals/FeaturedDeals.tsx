@@ -1,4 +1,5 @@
  import React from 'react';
+ import SectionHeader from '../SectionHeader/SectionHeader';
 import styles from './FeaturedDeals.module.css';
 import { deals } from '../../data/menuData';
 
@@ -10,10 +11,7 @@ interface FeaturedDealsProps {
     return (
  
         <div ref={sectionRef} className={styles.menuSubSection}>
-          <div className={styles.menuSubHeader}>
-            <h3 className={styles.menuSubTitle}>Featured Deals</h3>
-            <p className={styles.menuSubDesc}>Check out our latest deals and save big on your next order!</p>
-          </div>
+          <SectionHeader title="Featured Deals" desc="Check out our latest deals and save big on your next order!" />
           <div className={styles.dealsGrid}>
             {deals.map((deal) => (
               <div key={deal.id} className={styles.dealCard}>

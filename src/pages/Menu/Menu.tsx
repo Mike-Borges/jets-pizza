@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import PizzaNav from '../../components/PizzaNav/PizzaNav';
 import FeaturedDeals from '../../components/FeaturedDeals/FeaturedDeals';
+import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import Footer from '../../components/Footer/Footer';
 import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
@@ -144,14 +145,15 @@ export default function Menu() {
       {/* ── PIZZA ── */}
       <section id="pizza" ref={pizzaRef} className={styles.menuSection}>
 
-      <FeaturedDeals sectionRef={featuredDealsRef} />
+        {/* Featured Deals */}
+        <FeaturedDeals sectionRef={featuredDealsRef} />
 
         {/* Crust Styles */}
         <div ref={crustRef} className={styles.menuSubSection}>
-          <div className={styles.menuSubHeader}>
-            <h3 className={styles.menuSubTitle}>Crust Styles</h3>
-            <p className={styles.menuSubDesc}>Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®</p>
-          </div>
+          <SectionHeader
+            title="Crust Styles"
+            desc="Choose your own pizza with your choice of delicious crusts, sauces, and premium quality ingredients. You can even Flavorize Your Crust For Free!®"
+          />
           <div className={styles.menuSectionCrusts}>
             {crusts.map((crust) => (
               <MenuCard
@@ -168,10 +170,7 @@ export default function Menu() {
 
         {/* Jet's Exclusives */}
         <div ref={exclusivesRef} className={styles.menuSubSection}>
-          <div className={styles.menuSubHeader}>
-            <h3 className={styles.menuSubTitle}>Jet's Exclusives</h3>
-            <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-          </div>
+          <SectionHeader title="Jet's Exclusives" desc={DEFAULT_DESC} />
           <div className={styles.exclusiveGrid}>
             {exclusives.map((item) => (
               <div key={item.id} className={styles.exclusiveCard}>
@@ -189,10 +188,7 @@ export default function Menu() {
 
       {/* Specialty Pizzas */}
       <div ref={specialtyRef} className={styles.menuSubSection}>
-        <div className={styles.menuSubHeader}>
-          <h3 className={styles.menuSubTitle}>Specialty Pizzas</h3>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Specialty Pizzas" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid} style={{ padding: '0 80px' }}>
           {pizzas.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -202,10 +198,7 @@ export default function Menu() {
 
       {/* ── SIDEKICKS ── */}
       <section id="sidekicks" ref={sidekicksRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Sidekicks</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Sidekicks" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {sidekicks.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -215,10 +208,7 @@ export default function Menu() {
 
       {/* ── SALADS ── */}
       <section id="salads" ref={saladsRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Salads</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Salads" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {salads.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -228,10 +218,7 @@ export default function Menu() {
 
       {/* ── CALZONES ── */}
       <section id="calzones" ref={calzonesRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Calzones</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Calzones" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {calzones.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -241,10 +228,7 @@ export default function Menu() {
 
       {/* ── DRINKS ── */}
       <section id="drinks" ref={drinksRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Drinks</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Drinks" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {drinks.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} type={item.type} />
@@ -254,10 +238,7 @@ export default function Menu() {
 
       {/* ── DESSERTS ── */}
       <section id="desserts" ref={dessertsRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Desserts</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Desserts" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {desserts.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -267,10 +248,7 @@ export default function Menu() {
 
       {/* ── VEGAN ── */}
       <section id="vegan" ref={veganRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Vegan</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Vegan" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {vegan.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -280,10 +258,7 @@ export default function Menu() {
 
       {/* ── VEGETARIAN ── */}
       <section id="vegetarian" ref={vegetarianRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Vegetarian</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Vegetarian" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {vegetarian.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
@@ -293,10 +268,7 @@ export default function Menu() {
 
       {/* ── GLUTEN FREE ── */}
       <section id="gluten-free" ref={glutenFreeRef} className={styles.menuSection}>
-        <div className={styles.menuSubHeader}>
-          <h2 className={styles.menuSectionTitle}>Gluten Free</h2>
-          <p className={styles.menuSubDesc}>{DEFAULT_DESC}</p>
-        </div>
+        <SectionHeader title="Gluten Free" desc={DEFAULT_DESC} />
         <div className={styles.menuGrid}>
           {glutenFree.map((item) => (
             <MenuCard key={item.id} name={item.name} price={item.price} image={item.image} desc={item.desc} type={item.type} />
