@@ -1,0 +1,141 @@
+.aboutUs {
+  background: url("../../assets/jet-home.svg") no-repeat center center / cover;
+  max-width: 100%;
+}
+
+.aboutUsHero {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutUsSuperContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 106px;
+  height: 720px;
+  margin-bottom: 14px;
+}
+
+.aboutUsContainer {
+  color: #ffffff;
+  width: 657px;
+  height: 720px;
+  opacity: 1;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 80px;
+}
+
+.aboutUsTitle {
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Alfa Slab One", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 50px;
+  line-height: 75px;
+  letter-spacing: 5%;
+  vertical-align: middle;
+  padding-bottom: 40px;
+}
+
+.aboutUsHeadline {
+  color: #ffffff;
+  font-family: "Bitter", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-style: ExtraBold;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 2%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.aboutUsText {
+  color: #ffffff;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 34px;
+  letter-spacing: 2%;
+  vertical-align: middle;
+}
+
+.aboutUsImageContainer {
+  width: 517px;
+  height: 658px;
+  position: relative;
+}
+
+.aboutUsLowerTextContainer {
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: 31px;
+  margin-bottom: 31px;
+  align-items: center;
+}
+
+.aboutUsLowerTitle {
+  color: #ffffff;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 33px;
+  line-height: 34px;
+  letter-spacing: 2%;
+  padding-bottom: 10px;
+}
+
+.aboutUsLowerText {
+  color: #ffffff;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: medium;
+  font-size: 20px;
+  line-height: 34px;
+  letter-spacing: 2%;
+}
+
+.sterling,
+.redPaint,
+.truck,
+.greenPaint {
+  position: absolute;
+}
+
+.sterling {
+  z-index: 3;
+  top: 14px;
+  left: 48px;
+  width: 286px;
+  height: 305px;
+}
+
+.redPaint {
+  z-index: 1;
+  opacity: 1;
+  top: 5px;
+  left: 16px;
+}
+
+.truck {
+  z-index: 3;
+  top: 394px;
+  left: 230px;
+  width: 280px;
+  height: 289px;
+}
+
+.greenPaint {
+  z-index: 1;
+  top: 329px;
+  left: 153px;
+  opacity: 1;
+}
+
+/* .pepperoni {
+  background: url("../../assets/pepperoni-pizza.png");
+   max-width: 100%;
+} */
