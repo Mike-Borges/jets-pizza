@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getItemBySlug } from '../../data/menuData';
 import MenuCardCustomize from '../../components/MenuCardCustomize/MenuCardCustomize';
 import Header from '../../components/Header/Header';
+import MenuNav from '../../components/MenuNav/MenuNav';
 import Footer from '../../components/Footer/Footer';
 import styles from './CustomizePage.module.css';
 
@@ -13,13 +14,18 @@ export default function CustomizePage() {
   const item = slug ? getItemBySlug(slug) : null;
 
   useEffect(() => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
   }, []);
+
+  const handleNavClick = (category: string) => {
+  navigate('/menu', { state: { scrollTo: category } });
+};
 
   if (!item) {
     return (
       <>
         <Header />
+        <MenuNav activeCategory="" onTabClick={handleNavClick} />
         <div className={styles.notFound}>
           <p>Item not found.</p>
           <button onClick={() => navigate('/menu')}>Back to Menu</button>
@@ -32,6 +38,7 @@ export default function CustomizePage() {
   return (
     <div className={styles.pageWrapper}>
       <Header />
+      <MenuNav activeCategory="" onTabClick={handleNavClick} />
       <main className={styles.main}>
         <MenuCardCustomize
           name={item.name}

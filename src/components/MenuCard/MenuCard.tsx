@@ -23,16 +23,14 @@ export default function MenuCard({ image, name, price, desc, type }: MenuCardPro
     <div className={styles.menuCard} onClick={handleCustomize}>
       <img src={image} alt={name} className={styles.menuCardImg} />
       <div className={styles.menuCardInfo}>
-        <p className={styles.menuCardName}>{name}</p>
-        {desc && <p className={styles.menuCardDesc}>{desc}</p>}
-        <p className={styles.menuCardPrice}>{price}</p>
+        <h2 className={styles.menuCardName}>{name}</h2>
       </div>
       <div className={styles.menuCardActions}>
         <button
           className={styles.menuCardBtn}
           onClick={(e) => { e.stopPropagation(); handleCustomize(); }}
         >
-          Customize & Add
+          Start your order
         </button>
       </div>
     </div>

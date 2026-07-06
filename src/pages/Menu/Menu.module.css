@@ -1,48 +1,108 @@
+/* ─── PAGE WRAPPER ─────────────────────────────────────────────────────────── */
 .menu {
   width: 100%;
   background: url("../../assets/jet-home.svg") no-repeat center center / cover;
   box-sizing: border-box;
 }
 
+/* ─── MAIN SECTIONS ─────────────────────────────────────────────────────────── */
 .menuSection {
   padding: 60px 80px;
   border-bottom: 1px solid #fff;
-  scroll-margin-top: 120px;
+  scroll-margin-top: 169px;
+  overflow: visible;
 }
 
-.menuSectionHeader {
-  margin-bottom: 32px;
+/* ─── SUB SECTIONS ──────────────────────────────────────────────────────────── */
+.menuSubSection {
+  scroll-margin-top: 201px;
+  margin-bottom: 48px;
+  overflow: visible;
 }
 
-.menuSectionTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  font-family: "Bitter", sans-serif;
-  margin-bottom: 8px;
-}
-
-.menuSubTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  font-family: "Bitter", sans-serif;
-  margin: 0 0 20px;
-}
-
-.menuSectionDesc {
-  font-size: 0.875rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* ─── GRIDS ─────────────────────────────────────────────────────────────────── */
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .menuSectionCrusts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+.exclusiveGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 650px);
+  gap: 40px;
+  margin: 0 -80px;
+  padding: 0 50px;
+  max-width: 1440px;
+}
+
+/* ─── EXCLUSIVE CARDS ───────────────────────────────────────────────────────── */
+.exclusiveCard {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 613px;
+  padding: 24px 25px;
+}
+
+.exclusiveCard:hover {
+  border-color: #05a550;
+}
+
+.exclusiveCardImg {
+  width: 600px;
+  height: 350px;
+  background-color: #231f20;
+  display: flex;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.exclusiveName {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  padding: 56px 10px 4px;
+}
+
+.exclusiveBtn {
+  background-color: #05a550;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+}
+
+.exclusiveBtn:hover {
+  background-color: #333;
+}
+
+/* ─── CRUST CARDS ───────────────────────────────────────────────────────────── */
 .crustCard {
   background-color: #fff;
   border: 1px solid #e0e0e0;
@@ -98,13 +158,29 @@
   background-color: #333;
 }
 
-.menuGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
+/* ─── MEDIA QUERY ────────────────────────────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .exclusiveGrid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 -80px;
+    padding: 0 80px;
+    max-width: none;
+  }
 
-.menuSubSection {
-  scroll-margin-top: 160px;
-  margin-bottom: 48px;
+  .exclusiveCard {
+    height: 500px;
+  }
+
+  .exclusiveCardImg {
+    width: 100%;
+    height: 250px;
+  }
+
+  .exclusiveName {
+    padding: 32px 10px 4px;
+  }
+
+  .exclusiveBtn {
+    font-size: 0.875rem;
+  }
 }
