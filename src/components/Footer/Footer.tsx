@@ -46,7 +46,7 @@ export default function Footer() {
           <a href="/accessibility" className={styles.footerLink}>
             Accessibility
           </a>
-          <a href="/blog" className={styles.footerLink}>
+          <a href="/crunchClub" className={styles.footerLink}>
             Corner Crunch Blog
           </a>
         </div>

@@ -457,3 +457,16 @@
     height: 533px;
   }
 }
+
+@media (min-width:1250px ) {
+
+  .homeHeroImgBx {
+    width: 600px;
+    height: 600px;
+  }
+
+  .homeHeroGreen {
+    width: 700px;
+    height: 700px;
+  }
+}
