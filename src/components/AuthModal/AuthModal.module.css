@@ -1,0 +1,203 @@
+/* ─── OVERLAY ────────────────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── MODAL ──────────────────────────────────────────────────────────────────── */
+.modal {
+  background-color: #fff;
+  width: 420px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── LOGO ───────────────────────────────────────────────────────────────────── */
+.logoWrapper {
+  margin-bottom: 16px;
+}
+
+.logo {
+  height: 40px;
+}
+
+/* ─── TITLE ──────────────────────────────────────────────────────────────────── */
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #231f20;
+  font-family: "Bitter", sans-serif;
+  margin: 0 0 24px;
+}
+
+/* ─── FORM ───────────────────────────────────────────────────────────────────── */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #231f20;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #231f20;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #05a550;
+}
+
+/* ─── PASSWORD ───────────────────────────────────────────────────────────────── */
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordWrapper .input {
+  padding-right: 48px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* ─── SUBMIT BUTTON ──────────────────────────────────────────────────────────── */
+.submitBtn {
+  background-color: #05a550;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+}
+
+.submitBtn:hover {
+  background-color: #047a3d;
+}
+
+/* ─── DIVIDER ────────────────────────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #999;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+/* ─── SOCIAL BUTTONS ─────────────────────────────────────────────────────────── */
+.socialBtn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.socialBtn:hover {
+  background-color: #333;
+}
+
+.socialIcon {
+  font-size: 1rem;
+}
+
+/* ─── TOGGLE ─────────────────────────────────────────────────────────────────── */
+.toggleText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #231f20;
+  margin: 0;
+}
+
+.toggleLink {
+  color: #05a550;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.toggleLink:hover {
+  text-decoration: underline;
+}
+
+/* ─── FORGOT PASSWORD ────────────────────────────────────────────────────────── */
+.forgotPassword {
+  text-align: right;
+  margin: -8px 0;
+  font-size: 0.875rem;
+}
+
+/* ─── TERMS ──────────────────────────────────────────────────────────────────── */
+.terms {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  margin: 0;
+}
+
+.termsLink {
+  color: #05a550;
+  text-decoration: underline;
+}

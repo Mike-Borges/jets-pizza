@@ -75,7 +75,7 @@ export default function Menu() {
   // ─── INTERSECTION OBSERVERS ───────────────────────────────────────────────────
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-    const options = { threshold: 0, rootMargin: '-10% 0px -80% 0px' };
+    const options = { threshold: 0, rootMargin: '-20% 0px -70% 0px' };
 
     const refs = {
       Pizza: pizzaRef,
