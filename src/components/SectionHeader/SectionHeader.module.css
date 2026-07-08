@@ -1,0 +1,25 @@
+.menuSubHeader {
+  background: var(--brand-green);
+  margin: 0 -80px 40px;
+  padding: 8px 80px;
+  width: calc(100% + 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuSubTitle {
+  font-size: 3.125rem;
+  font-weight: 400;
+  color: #000;
+  font-family: "Alfa Slab One", sans-serif;
+  margin: 0;
+}
+
+.menuSubDesc {
+  font-size: 1rem;
+  color: #fff;
+  margin: 4px 0 0;
+  font-family: "Bitter", sans-serif;
+}

@@ -15,46 +15,48 @@ const veganSauces = ['Mama Jetts\' Pizza Sauce', 'BBQ', 'Mild Buffalo'];
 const veganVeggies = ['Mushrooms', 'Green Peppers', 'Mild Peppers', 'Jalapeño Peppers', 'Kalamata Olives', 'Pineapple', 'Onions', 'Tomatoes', 'Red Onions', 'Black Olives', 'Spinach'];
 const veganCheese = ['Vegan Cheese'];
 
+type CrustOption = typeof crustOptions[0];
+type SizeOption = typeof crustOptions[0]['sizes'][0];
+type DrinkSize = typeof drinkSizes[0];
+
 interface MenuCardCustomizeProps {
   name: string;
   image: string;
   desc?: string;
   type: string;
-  preSelectedCrust?: string;
   onClose: () => void;
 }
 
-export default function MenuCardCustomize({ name, image, desc, type, preSelectedCrust, onClose }: MenuCardCustomizeProps) {
-  const initialCrust = preSelectedCrust
-    ? crustOptions.find((c) => c.name === preSelectedCrust) ?? crustOptions[0]
-    : crustOptions[0];
+export default function MenuCardCustomize({ name, image, desc, type, onClose }: MenuCardCustomizeProps) {
 
+  // ─── STATE ───────────────────────────────────────────────────────────────────
   const [crustChosen, setCrustChosen] = useState(false);
-  const [selectedCrust, setSelectedCrust] = useState(initialCrust);
-  const [selectedSize, setSelectedSize] = useState(initialCrust.sizes[0]);
-  const [selectedSauce, setSelectedSauce] = useState(toppingOptions.sauces[0]);
+  const [selectedCrust, setSelectedCrust] = useState<CrustOption | null>(null);
+  const [selectedSize, setSelectedSize] = useState<SizeOption | null>(null);
+  const [selectedSauce, setSelectedSauce] = useState<string | null>(null);
   const [selectedMeats, setSelectedMeats] = useState<string[]>([]);
   const [selectedVeggies, setSelectedVeggies] = useState<string[]>([]);
   const [selectedCheese, setSelectedCheese] = useState<string[]>([]);
-  const [selectedBake, setSelectedBake] = useState('Regular');
-  const [selectedTurbo, setSelectedTurbo] = useState(turboCrustOptions[6].name);
-  const [selectedDipping, setSelectedDipping] = useState(dippingSauces[0]);
-  const [selectedWingsSauce, setSelectedWingsSauce] = useState(wingsSauces[0]);
-  const [selectedDressing, setSelectedDressing] = useState(saladDressings[0]);
+  const [selectedBake, setSelectedBake] = useState<string | null>(null);
+  const [selectedTurbo, setSelectedTurbo] = useState<string | null>(null);
+  const [selectedDipping, setSelectedDipping] = useState<string | null>(null);
+  const [selectedWingsSauce, setSelectedWingsSauce] = useState<string | null>(null);
+  const [selectedDressing, setSelectedDressing] = useState<string | null>(null);
   const [selectedCalzoneToppings, setSelectedCalzoneToppings] = useState<string[]>([]);
   const [selectedCalzoneCheese, setSelectedCalzoneCheese] = useState<string[]>([]);
-  const [selectedCalzoneDressing, setSelectedCalzoneDressing] = useState(saladDressings[0]);
+  const [selectedCalzoneDressing, setSelectedCalzoneDressing] = useState<string | null>(null);
   const [selectedBreadToppings, setSelectedBreadToppings] = useState<string[]>([]);
   const [selectedBreadCheese, setSelectedBreadCheese] = useState<string[]>([]);
-  const [selectedVeganSauce, setSelectedVeganSauce] = useState(veganSauces[0]);
+  const [selectedVeganSauce, setSelectedVeganSauce] = useState<string | null>(null);
   const [selectedVeganVeggies, setSelectedVeganVeggies] = useState<string[]>([]);
   const [selectedVeganCheese, setSelectedVeganCheese] = useState<string[]>([]);
-  const [selectedDrinkSize, setSelectedDrinkSize] = useState(drinkSizes[0]);
+  const [selectedDrinkSize, setSelectedDrinkSize] = useState<DrinkSize | null>(null);
   const [quantity, setQuantity] = useState(1);
 
-  const handleCrustChange = (crust: typeof crustOptions[0]) => {
+  // ─── HANDLERS ────────────────────────────────────────────────────────────────
+  const handleCrustChange = (crust: CrustOption) => {
     setSelectedCrust(crust);
-    setSelectedSize(crust.sizes[0]);
+    setSelectedSize(null);
     setCrustChosen(true);
   };
 
@@ -68,36 +70,41 @@ export default function MenuCardCustomize({ name, image, desc, type, preSelected
 
   const getPrice = () => {
     if (['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary'].includes(type)) {
-      return (selectedSize.price * quantity).toFixed(2);
+      return selectedSize ? (selectedSize.price * quantity).toFixed(2) : '0.00';
     }
-    if (type === 'drink') return (selectedDrinkSize.price * quantity).toFixed(2);
+    if (type === 'drink') return selectedDrinkSize ? (selectedDrinkSize.price * quantity).toFixed(2) : '0.00';
     return 'See Total';
   };
 
   const isPizza = ['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary', 'pizza-gf'].includes(type);
 
+  // ─── RENDER ──────────────────────────────────────────────────────────────────
   return (
     <div className={styles.page}>
 
       {/* LEFT COLUMN */}
+      <div className={styles.leftColumn}>
       <div className={styles.left}>
         <img src={image} alt={name} className={styles.image} />
         <h2 className={styles.name}>{name}</h2>
         {desc && <p className={styles.desc}>{desc}</p>}
-        {isPizza && (
+        
+      </div>
+      {isPizza && (
           <div className={styles.halfBanner}>
             <button className={styles.halfBtn}>GO TO HALF & HALF</button>
           </div>
         )}
-      </div>
+        </div>
 
       {/* RIGHT COLUMN */}
+      <div className={styles.rightColumn}>
       <div className={styles.rightWrapper}>
         <button className={styles.backBtn} onClick={onClose}>← Back to Menu</button>
 
         <div className={styles.options}>
 
-          {/* CRUST — BYO, Specialty, Dietary (FIRST) */}
+          {/* CRUST — BYO, Specialty, Dietary */}
           {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
             <div className={styles.section}>
               <div className={styles.sectionHeader}>
@@ -107,194 +114,203 @@ export default function MenuCardCustomize({ name, image, desc, type, preSelected
               {crustOptions.map((crust) => (
                 <label key={crust.id} className={styles.radioRow}>
                   <span>{crust.name}</span>
-                  <input type="radio" name="crust" checked={selectedCrust.id === crust.id} onChange={() => handleCrustChange(crust)} />
+                  <input
+                    type="radio"
+                    name="crust"
+                    checked={selectedCrust?.id === crust.id}
+                    onChange={() => handleCrustChange(crust)}
+                  />
                 </label>
               ))}
             </div>
           )}
 
-          {/* Conditional sections based on crust choice */}
-
+          {/* EVERYTHING ELSE — only shown after crust is chosen */}
           {crustChosen && (
             <>
 
-          {/* SIZE — BYO, Specialty, Dietary (SECOND) */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>SIZE</h3>
-                <span>CHOOSE 1</span>
-              </div>
-              {selectedCrust.sizes.map((size) => (
-                <label key={size.name} className={styles.radioRow}>
-                  <span>{size.name} {size.inches} — ${size.price}</span>
-                  <input type="radio" name="size" checked={selectedSize.name === size.name} onChange={() => setSelectedSize(size)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* SIZE — BYO, Specialty, Dietary */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-dietary'].includes(type) && selectedCrust && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>SIZE</h3>
+                    <span>CHOOSE 1</span>
+                  </div>
+                  {selectedCrust.sizes.map((size) => (
+                    <label key={size.name} className={styles.radioRow}>
+                      <span>{size.name} {size.inches} — ${size.price}</span>
+                      <input
+                        type="radio"
+                        name="size"
+                        checked={selectedSize?.name === size.name}
+                        onChange={() => setSelectedSize(size)}
+                      />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* SAUCE — Pizza types */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-exclusive'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>SAUCE</h3>
-                <span>CHOOSE 1</span>
-              </div>
-              {toppingOptions.sauces.map((sauce) => (
-                <label key={sauce} className={styles.radioRow}>
-                  <span>{sauce}</span>
-                  <input type="radio" name="sauce" checked={selectedSauce === sauce} onChange={() => setSelectedSauce(sauce)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* SAUCE — Pizza types */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-exclusive'].includes(type) && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>SAUCE</h3>
+                    <span>CHOOSE 1</span>
+                  </div>
+                  {toppingOptions.sauces.map((sauce) => (
+                    <label key={sauce} className={styles.radioRow}>
+                      <span>{sauce}</span>
+                      <input type="radio" name="sauce" checked={selectedSauce === sauce} onChange={() => setSelectedSauce(sauce)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* SAUCE — Vegan/Dietary */}
-          {type === 'pizza-dietary' && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>SAUCE</h3>
-                <span>CHOOSE 1</span>
-              </div>
-              {veganSauces.map((sauce) => (
-                <label key={sauce} className={styles.radioRow}>
-                  <span>{sauce}</span>
-                  <input type="radio" name="sauce" checked={selectedVeganSauce === sauce} onChange={() => setSelectedVeganSauce(sauce)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* SAUCE — Vegan/Dietary */}
+              {type === 'pizza-dietary' && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>SAUCE</h3>
+                    <span>CHOOSE 1</span>
+                  </div>
+                  {veganSauces.map((sauce) => (
+                    <label key={sauce} className={styles.radioRow}>
+                      <span>{sauce}</span>
+                      <input type="radio" name="sauce" checked={selectedVeganSauce === sauce} onChange={() => setSelectedVeganSauce(sauce)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* SAUCE — Gluten Free */}
-          {type === 'pizza-gf' && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>SAUCE</h3>
-                <span>CHOOSE 1</span>
-              </div>
-              {toppingOptions.sauces.map((sauce) => (
-                <label key={sauce} className={styles.radioRow}>
-                  <span>{sauce}</span>
-                  <input type="radio" name="sauce" checked={selectedSauce === sauce} onChange={() => setSelectedSauce(sauce)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* SAUCE — Gluten Free */}
+              {type === 'pizza-gf' && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>SAUCE</h3>
+                    <span>CHOOSE 1</span>
+                  </div>
+                  {toppingOptions.sauces.map((sauce) => (
+                    <label key={sauce} className={styles.radioRow}>
+                      <span>{sauce}</span>
+                      <input type="radio" name="sauce" checked={selectedSauce === sauce} onChange={() => setSelectedSauce(sauce)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* MEAT TOPPINGS — Pizza types */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>MEAT TOPPINGS</h3>
-                <span>CHOOSE UP TO 8</span>
-              </div>
-              {toppingOptions.meats.map((meat) => (
-                <label key={meat} className={styles.checkRow}>
-                  <span>{meat}</span>
-                  <input type="checkbox" checked={selectedMeats.includes(meat)} onChange={() => toggle(meat, selectedMeats, setSelectedMeats)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* MEAT TOPPINGS — Pizza types */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>MEAT TOPPINGS</h3>
+                    <span>CHOOSE UP TO 8</span>
+                  </div>
+                  {toppingOptions.meats.map((meat) => (
+                    <label key={meat} className={styles.checkRow}>
+                      <span>{meat}</span>
+                      <input type="checkbox" checked={selectedMeats.includes(meat)} onChange={() => toggle(meat, selectedMeats, setSelectedMeats)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* VEGGIE TOPPINGS — Pizza types */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>VEGGIE TOPPINGS</h3>
-                <span>CHOOSE UP TO 8</span>
-              </div>
-              {toppingOptions.vegetables.map((veg) => (
-                <label key={veg} className={styles.checkRow}>
-                  <span>{veg}</span>
-                  <input type="checkbox" checked={selectedVeggies.includes(veg)} onChange={() => toggle(veg, selectedVeggies, setSelectedVeggies)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* VEGGIE TOPPINGS — Pizza types */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>VEGGIE TOPPINGS</h3>
+                    <span>CHOOSE UP TO 8</span>
+                  </div>
+                  {toppingOptions.vegetables.map((veg) => (
+                    <label key={veg} className={styles.checkRow}>
+                      <span>{veg}</span>
+                      <input type="checkbox" checked={selectedVeggies.includes(veg)} onChange={() => toggle(veg, selectedVeggies, setSelectedVeggies)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* VEGGIE TOPPINGS — Dietary/Vegan */}
-          {type === 'pizza-dietary' && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>VEGGIE TOPPINGS</h3>
-                <span>CHOOSE UP TO 8</span>
-              </div>
-              {veganVeggies.map((veg) => (
-                <label key={veg} className={styles.checkRow}>
-                  <span>{veg}</span>
-                  <input type="checkbox" checked={selectedVeganVeggies.includes(veg)} onChange={() => toggle(veg, selectedVeganVeggies, setSelectedVeganVeggies)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* VEGGIE TOPPINGS — Dietary/Vegan */}
+              {type === 'pizza-dietary' && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>VEGGIE TOPPINGS</h3>
+                    <span>CHOOSE UP TO 8</span>
+                  </div>
+                  {veganVeggies.map((veg) => (
+                    <label key={veg} className={styles.checkRow}>
+                      <span>{veg}</span>
+                      <input type="checkbox" checked={selectedVeganVeggies.includes(veg)} onChange={() => toggle(veg, selectedVeganVeggies, setSelectedVeganVeggies)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* CHEESE — Pizza types */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>CHEESE</h3>
-                <span>CHOOSE UP TO 3</span>
-              </div>
-              {toppingOptions.cheese.map((cheese) => (
-                <label key={cheese} className={styles.checkRow}>
-                  <span>{cheese}</span>
-                  <input type="checkbox" checked={selectedCheese.includes(cheese)} onChange={() => toggle(cheese, selectedCheese, setSelectedCheese)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* CHEESE — Pizza types */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-gf'].includes(type) && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>CHEESE</h3>
+                    <span>CHOOSE UP TO 3</span>
+                  </div>
+                  {toppingOptions.cheese.map((cheese) => (
+                    <label key={cheese} className={styles.checkRow}>
+                      <span>{cheese}</span>
+                      <input type="checkbox" checked={selectedCheese.includes(cheese)} onChange={() => toggle(cheese, selectedCheese, setSelectedCheese)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* CHEESE — Dietary/Vegan */}
-          {type === 'pizza-dietary' && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>CHEESE</h3>
-                <span>CHOOSE UP TO 1</span>
-              </div>
-              {veganCheese.map((cheese) => (
-                <label key={cheese} className={styles.checkRow}>
-                  <span>{cheese}</span>
-                  <input type="checkbox" checked={selectedVeganCheese.includes(cheese)} onChange={() => toggle(cheese, selectedVeganCheese, setSelectedVeganCheese)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* CHEESE — Dietary/Vegan */}
+              {type === 'pizza-dietary' && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>CHEESE</h3>
+                    <span>CHOOSE UP TO 1</span>
+                  </div>
+                  {veganCheese.map((cheese) => (
+                    <label key={cheese} className={styles.checkRow}>
+                      <span>{cheese}</span>
+                      <input type="checkbox" checked={selectedVeganCheese.includes(cheese)} onChange={() => toggle(cheese, selectedVeganCheese, setSelectedVeganCheese)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* BAKE — Pizza types except GF */}
-          {isPizza && type !== 'pizza-gf' && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>BAKE PREFERENCE</h3>
-                <span>CHOOSE 1</span>
-              </div>
-              {bakeOptions.map((bake) => (
-                <label key={bake} className={styles.radioRow}>
-                  <span>{bake}</span>
-                  <input type="radio" name="bake" checked={selectedBake === bake} onChange={() => setSelectedBake(bake)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* BAKE — Pizza types except GF */}
+              {isPizza && type !== 'pizza-gf' && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>BAKE PREFERENCE</h3>
+                    <span>CHOOSE 1</span>
+                  </div>
+                  {bakeOptions.map((bake) => (
+                    <label key={bake} className={styles.radioRow}>
+                      <span>{bake}</span>
+                      <input type="radio" name="bake" checked={selectedBake === bake} onChange={() => setSelectedBake(bake)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          {/* TURBO CRUST — Pizza types except GF */}
-          {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary'].includes(type) && (
-            <div className={styles.section}>
-              <div className={styles.sectionHeader}>
-                <h3>TURBO CRUST</h3>
-                <span>CHOOSE 1 — FREE</span>
-              </div>
-              {turboCrustOptions.map((turbo) => (
-                <label key={turbo.id} className={styles.radioRow}>
-                  <span>{turbo.name}</span>
-                  <input type="radio" name="turbo" checked={selectedTurbo === turbo.name} onChange={() => setSelectedTurbo(turbo.name)} />
-                </label>
-              ))}
-            </div>
-          )}
+              {/* TURBO CRUST — Pizza types except GF */}
+              {['pizza-byo', 'pizza-specialty', 'pizza-exclusive', 'pizza-dietary'].includes(type) && (
+                <div className={styles.section}>
+                  <div className={styles.sectionHeader}>
+                    <h3>TURBO CRUST</h3>
+                    <span>CHOOSE 1 — FREE</span>
+                  </div>
+                  {turboCrustOptions.map((turbo) => (
+                    <label key={turbo.id} className={styles.radioRow}>
+                      <span>{turbo.name}</span>
+                      <input type="radio" name="turbo" checked={selectedTurbo === turbo.name} onChange={() => setSelectedTurbo(turbo.name)} />
+                    </label>
+                  ))}
+                </div>
+              )}
 
-          </>
+            </>
           )}
 
           {/* WINGS */}
@@ -487,7 +503,7 @@ export default function MenuCardCustomize({ name, image, desc, type, preSelected
               {drinkSizes.map((size) => (
                 <label key={size.name} className={styles.radioRow}>
                   <span>{size.name} — ${size.price}</span>
-                  <input type="radio" name="drinkSize" checked={selectedDrinkSize.name === size.name} onChange={() => setSelectedDrinkSize(size)} />
+                  <input type="radio" name="drinkSize" checked={selectedDrinkSize?.name === size.name} onChange={() => setSelectedDrinkSize(size)} />
                 </label>
               ))}
             </div>
@@ -495,6 +511,9 @@ export default function MenuCardCustomize({ name, image, desc, type, preSelected
 
         </div>
 
+      
+
+      </div>
         {/* STICKY FOOTER */}
         <div className={styles.footer}>
           <div className={styles.qtyControl}>
@@ -504,8 +523,7 @@ export default function MenuCardCustomize({ name, image, desc, type, preSelected
           </div>
           <button className={styles.addBtn}>ADD ({getPrice()})</button>
         </div>
-
-      </div>
+        </div>
     </div>
   );
 }
